@@ -128,6 +128,30 @@ DZ2.elf/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\DZ2.elf.dir\build.make CMakeFiles/DZ2.elf.dir/build
 .PHONY : DZ2.elf/fast
 
+src/ContactBounce/ContactBounce.obj: src/ContactBounce/ContactBounce.cpp.obj
+.PHONY : src/ContactBounce/ContactBounce.obj
+
+# target to build an object file
+src/ContactBounce/ContactBounce.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DZ2.elf.dir\build.make CMakeFiles/DZ2.elf.dir/src/ContactBounce/ContactBounce.cpp.obj
+.PHONY : src/ContactBounce/ContactBounce.cpp.obj
+
+src/ContactBounce/ContactBounce.i: src/ContactBounce/ContactBounce.cpp.i
+.PHONY : src/ContactBounce/ContactBounce.i
+
+# target to preprocess a source file
+src/ContactBounce/ContactBounce.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DZ2.elf.dir\build.make CMakeFiles/DZ2.elf.dir/src/ContactBounce/ContactBounce.cpp.i
+.PHONY : src/ContactBounce/ContactBounce.cpp.i
+
+src/ContactBounce/ContactBounce.s: src/ContactBounce/ContactBounce.cpp.s
+.PHONY : src/ContactBounce/ContactBounce.s
+
+# target to generate assembly for a file
+src/ContactBounce/ContactBounce.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\DZ2.elf.dir\build.make CMakeFiles/DZ2.elf.dir/src/ContactBounce/ContactBounce.cpp.s
+.PHONY : src/ContactBounce/ContactBounce.cpp.s
+
 src/Startup/startup_stm32f051r8tx.obj: src/Startup/startup_stm32f051r8tx.s.obj
 .PHONY : src/Startup/startup_stm32f051r8tx.obj
 
@@ -169,6 +193,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... DZ2.elf
+	@echo ... src/ContactBounce/ContactBounce.obj
+	@echo ... src/ContactBounce/ContactBounce.i
+	@echo ... src/ContactBounce/ContactBounce.s
 	@echo ... src/Startup/startup_stm32f051r8tx.obj
 	@echo ... src/main.obj
 	@echo ... src/main.i

@@ -16,14 +16,11 @@ set(CMAKE_ASM_COMPILER_ID "GNU")
 set(CMAKE_TARGET_DEFINITIONS_ASM
   "DEBUG"
   "STM32F051x8"
-  "USE_HAL_DRIVER"
   )
 
 # The include file search paths:
 set(CMAKE_ASM_TARGET_INCLUDE_PATH
-  "C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/Inc"
-  "C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/STM32F0xx_HAL_Driver/Inc"
-  "C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy"
+  "C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src"
   "C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Device/ST/STM32F0xx/Include"
   "C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include"
   )
@@ -31,6 +28,7 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/main.c" "CMakeFiles/DZ2.elf.dir/src/main.c.obj" "gcc" "CMakeFiles/DZ2.elf.dir/src/main.c.obj.d"
+  "C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/ContactBounce/ContactBounce.cpp" "CMakeFiles/DZ2.elf.dir/src/ContactBounce/ContactBounce.cpp.obj" "gcc" "CMakeFiles/DZ2.elf.dir/src/ContactBounce/ContactBounce.cpp.obj.d"
   )
 
 # Targets to which this target links.

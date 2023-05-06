@@ -82,6 +82,11 @@ Discarded input sections
  .text          0x00000000        0x0 CMakeFiles/DZ2.elf.dir/src/main.c.obj
  .data          0x00000000        0x0 CMakeFiles/DZ2.elf.dir/src/main.c.obj
  .bss           0x00000000        0x0 CMakeFiles/DZ2.elf.dir/src/main.c.obj
+ .bss.second_interrupt
+                0x00000000        0x1 CMakeFiles/DZ2.elf.dir/src/main.c.obj
+ .bss.state     0x00000000        0x1 CMakeFiles/DZ2.elf.dir/src/main.c.obj
+ .bss.press_counter
+                0x00000000        0x4 CMakeFiles/DZ2.elf.dir/src/main.c.obj
  .text          0x00000000        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-exit.o)
  .data          0x00000000        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-exit.o)
  .bss           0x00000000        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-exit.o)
@@ -386,7 +391,7 @@ LOAD c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb
                 0x08000000                g_pfnVectors
                 0x080000c0                        . = ALIGN (0x4)
 
-.text           0x080000c0      0x298
+.text           0x080000c0      0x250
                 0x080000c0                        . = ALIGN (0x4)
  *(.text)
  *(.text*)
@@ -438,104 +443,103 @@ LOAD c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb
                 0x080001a4                FLASH_IRQHandler
                 0x080001a4                USART1_IRQHandler
                 0x080001a4                TIM1_BRK_UP_TRG_COM_IRQHandler
- *fill*         0x080001a6        0x2 
- .text.main     0x080001a8       0x50 CMakeFiles/DZ2.elf.dir/src/main.c.obj
-                0x080001a8                main
+ .text.main     0x080001a6        0xa CMakeFiles/DZ2.elf.dir/src/main.c.obj
+                0x080001a6                main
  .text.__libc_init_array
-                0x080001f8       0x48 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-init.o)
-                0x080001f8                __libc_init_array
+                0x080001b0       0x48 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-init.o)
+                0x080001b0                __libc_init_array
  .text.__retarget_lock_acquire_recursive
-                0x08000240        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-lock.o)
-                0x08000240                __retarget_lock_acquire_recursive
+                0x080001f8        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-lock.o)
+                0x080001f8                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x08000244        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-lock.o)
-                0x08000244                __retarget_lock_release_recursive
+                0x080001fc        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-lock.o)
+                0x080001fc                __retarget_lock_release_recursive
  .text.startup.register_fini
-                0x08000248       0x18 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__call_atexit.o)
- .text.atexit   0x08000260       0x10 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-atexit.o)
-                0x08000260                atexit
+                0x08000200       0x18 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__call_atexit.o)
+ .text.atexit   0x08000218       0x10 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-atexit.o)
+                0x08000218                atexit
  .text.__libc_fini_array
-                0x08000270       0x28 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-fini.o)
-                0x08000270                __libc_fini_array
+                0x08000228       0x28 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-fini.o)
+                0x08000228                __libc_fini_array
  .text.__register_exitproc
-                0x08000298       0xa8 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__atexit.o)
-                0x08000298                __register_exitproc
+                0x08000250       0xa8 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__atexit.o)
+                0x08000250                __register_exitproc
  *(.glue_7)
- .glue_7        0x08000340        0x0 linker stubs
+ .glue_7        0x080002f8        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x08000340        0x0 linker stubs
+ .glue_7t       0x080002f8        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x08000340        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
+ .eh_frame      0x080002f8        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
  *(.init)
- .init          0x08000340        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crti.o
-                0x08000340                _init
- .init          0x08000344        0x8 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtn.o
+ .init          0x080002f8        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crti.o
+                0x080002f8                _init
+ .init          0x080002fc        0x8 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtn.o
  *(.fini)
- .fini          0x0800034c        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crti.o
-                0x0800034c                _fini
- .fini          0x08000350        0x8 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtn.o
-                0x08000358                        . = ALIGN (0x4)
-                0x08000358                        _etext = .
+ .fini          0x08000304        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crti.o
+                0x08000304                _fini
+ .fini          0x08000308        0x8 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtn.o
+                0x08000310                        . = ALIGN (0x4)
+                0x08000310                        _etext = .
 
-.vfp11_veneer   0x08000358        0x0
- .vfp11_veneer  0x08000358        0x0 linker stubs
+.vfp11_veneer   0x08000310        0x0
+ .vfp11_veneer  0x08000310        0x0 linker stubs
 
-.v4_bx          0x08000358        0x0
- .v4_bx         0x08000358        0x0 linker stubs
+.v4_bx          0x08000310        0x0
+ .v4_bx         0x08000310        0x0 linker stubs
 
-.iplt           0x08000358        0x0
- .iplt          0x08000358        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
+.iplt           0x08000310        0x0
+ .iplt          0x08000310        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
 
-.rel.dyn        0x08000358        0x0
- .rel.iplt      0x08000358        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
+.rel.dyn        0x08000310        0x0
+ .rel.iplt      0x08000310        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
 
-.rodata         0x08000358        0x0
-                0x08000358                        . = ALIGN (0x4)
+.rodata         0x08000310        0x0
+                0x08000310                        . = ALIGN (0x4)
  *(.rodata)
  *(.rodata*)
-                0x08000358                        . = ALIGN (0x4)
+                0x08000310                        . = ALIGN (0x4)
 
-.ARM.extab      0x08000358        0x0
-                0x08000358                        . = ALIGN (0x4)
+.ARM.extab      0x08000310        0x0
+                0x08000310                        . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x08000358                        . = ALIGN (0x4)
+                0x08000310                        . = ALIGN (0x4)
 
-.ARM            0x08000358        0x0
-                0x08000358                        . = ALIGN (0x4)
-                0x08000358                        __exidx_start = .
+.ARM            0x08000310        0x0
+                0x08000310                        . = ALIGN (0x4)
+                0x08000310                        __exidx_start = .
  *(.ARM.exidx*)
-                0x08000358                        __exidx_end = .
-                0x08000358                        . = ALIGN (0x4)
+                0x08000310                        __exidx_end = .
+                0x08000310                        . = ALIGN (0x4)
 
-.preinit_array  0x08000358        0x0
-                0x08000358                        . = ALIGN (0x4)
-                0x08000358                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x08000310        0x0
+                0x08000310                        . = ALIGN (0x4)
+                0x08000310                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x08000358                        PROVIDE (__preinit_array_end = .)
-                0x08000358                        . = ALIGN (0x4)
+                0x08000310                        PROVIDE (__preinit_array_end = .)
+                0x08000310                        . = ALIGN (0x4)
 
-.init_array     0x08000358        0x8
-                0x08000358                        . = ALIGN (0x4)
-                0x08000358                        PROVIDE (__init_array_start = .)
+.init_array     0x08000310        0x8
+                0x08000310                        . = ALIGN (0x4)
+                0x08000310                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  .init_array.00000
-                0x08000358        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__call_atexit.o)
+                0x08000310        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__call_atexit.o)
  *(.init_array*)
- .init_array    0x0800035c        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
-                0x08000360                        PROVIDE (__init_array_end = .)
-                0x08000360                        . = ALIGN (0x4)
+ .init_array    0x08000314        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
+                0x08000318                        PROVIDE (__init_array_end = .)
+                0x08000318                        . = ALIGN (0x4)
 
-.fini_array     0x08000360        0x4
-                0x08000360                        . = ALIGN (0x4)
-                0x08000360                        PROVIDE (__fini_array_start = .)
+.fini_array     0x08000318        0x4
+                0x08000318                        . = ALIGN (0x4)
+                0x08000318                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x08000360        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
-                0x08000364                        PROVIDE (__fini_array_end = .)
-                0x08000364                        . = ALIGN (0x4)
-                0x08000364                        _sidata = LOADADDR (.data)
+ .fini_array    0x08000318        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
+                0x0800031c                        PROVIDE (__fini_array_end = .)
+                0x0800031c                        . = ALIGN (0x4)
+                0x0800031c                        _sidata = LOADADDR (.data)
 
-.data           0x20000000        0x4 load address 0x08000364
+.data           0x20000000        0x4 load address 0x0800031c
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sdata = .
  *(.data)
@@ -549,17 +553,17 @@ LOAD c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb
                 0x20000004                        _edata = .
 
 .tm_clone_table
-                0x20000004        0x0 load address 0x08000368
+                0x20000004        0x0 load address 0x08000320
  .tm_clone_table
                 0x20000004        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
  .tm_clone_table
                 0x20000004        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtend.o
 
-.igot.plt       0x20000004        0x0 load address 0x08000368
+.igot.plt       0x20000004        0x0 load address 0x08000320
  .igot.plt      0x20000004        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
                 0x20000004                        . = ALIGN (0x4)
 
-.bss            0x20000004      0x1b4 load address 0x08000368
+.bss            0x20000004      0x1b4 load address 0x08000320
                 0x20000004                        _sbss = .
                 0x20000004                        __bss_start__ = _sbss
  *(.bss)
@@ -583,7 +587,7 @@ LOAD c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb
                 0x200001b8                        __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x200001b8      0x600 load address 0x08000368
+                0x200001b8      0x600 load address 0x08000320
                 0x200001b8                        . = ALIGN (0x8)
                 [!provide]                        PROVIDE (end = .)
                 [!provide]                        PROVIDE (_end = .)
@@ -631,22 +635,22 @@ LOAD c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb
 LOAD c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libm.a
 LOAD c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libgcc.a
 
-.debug_line     0x00000000      0x264
+.debug_line     0x00000000      0x20a
  .debug_line    0x00000000       0x7a CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
- .debug_line    0x0000007a      0x1ea CMakeFiles/DZ2.elf.dir/src/main.c.obj
+ .debug_line    0x0000007a      0x190 CMakeFiles/DZ2.elf.dir/src/main.c.obj
 
 .debug_line_str
                 0x00000000       0xc2
  .debug_line_str
                 0x00000000       0xc2 CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
 
-.debug_info     0x00000000      0x261
+.debug_info     0x00000000      0x138
  .debug_info    0x00000000       0x30 CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
- .debug_info    0x00000030      0x231 CMakeFiles/DZ2.elf.dir/src/main.c.obj
+ .debug_info    0x00000030      0x108 CMakeFiles/DZ2.elf.dir/src/main.c.obj
 
-.debug_abbrev   0x00000000      0x101
+.debug_abbrev   0x00000000       0xb2
  .debug_abbrev  0x00000000       0x24 CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
- .debug_abbrev  0x00000024       0xdd CMakeFiles/DZ2.elf.dir/src/main.c.obj
+ .debug_abbrev  0x00000024       0x8e CMakeFiles/DZ2.elf.dir/src/main.c.obj
 
 .debug_aranges  0x00000000       0x48
  .debug_aranges
@@ -654,32 +658,27 @@ LOAD c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb
  .debug_aranges
                 0x00000028       0x20 CMakeFiles/DZ2.elf.dir/src/main.c.obj
 
-.debug_str      0x00000000      0x2cf
+.debug_str      0x00000000      0x28b
  .debug_str     0x00000000       0xde CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
- .debug_str     0x000000de      0x1f1 CMakeFiles/DZ2.elf.dir/src/main.c.obj
-                                0x286 (size before relaxing)
+ .debug_str     0x000000de      0x1ad CMakeFiles/DZ2.elf.dir/src/main.c.obj
+                                0x24a (size before relaxing)
 
 .debug_rnglists
-                0x00000000       0x38
+                0x00000000       0x2c
  .debug_rnglists
                 0x00000000       0x19 CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
  .debug_rnglists
-                0x00000019       0x1f CMakeFiles/DZ2.elf.dir/src/main.c.obj
-
-.debug_loclists
-                0x00000000       0x36
- .debug_loclists
-                0x00000000       0x36 CMakeFiles/DZ2.elf.dir/src/main.c.obj
+                0x00000019       0x13 CMakeFiles/DZ2.elf.dir/src/main.c.obj
 
 .comment        0x00000000       0x55
  .comment       0x00000000       0x55 CMakeFiles/DZ2.elf.dir/src/main.c.obj
                                  0x56 (size before relaxing)
 
-.debug_frame    0x00000000      0x1dc
- .debug_frame   0x00000000       0x20 CMakeFiles/DZ2.elf.dir/src/main.c.obj
- .debug_frame   0x00000020       0x2c c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-init.o)
- .debug_frame   0x0000004c       0xb0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-lock.o)
- .debug_frame   0x000000fc       0x54 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__call_atexit.o)
- .debug_frame   0x00000150       0x28 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-atexit.o)
- .debug_frame   0x00000178       0x2c c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-fini.o)
- .debug_frame   0x000001a4       0x38 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__atexit.o)
+.debug_frame    0x00000000      0x1e4
+ .debug_frame   0x00000000       0x28 CMakeFiles/DZ2.elf.dir/src/main.c.obj
+ .debug_frame   0x00000028       0x2c c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-init.o)
+ .debug_frame   0x00000054       0xb0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-lock.o)
+ .debug_frame   0x00000104       0x54 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__call_atexit.o)
+ .debug_frame   0x00000158       0x28 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-atexit.o)
+ .debug_frame   0x00000180       0x2c c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-fini.o)
+ .debug_frame   0x000001ac       0x38 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__atexit.o)

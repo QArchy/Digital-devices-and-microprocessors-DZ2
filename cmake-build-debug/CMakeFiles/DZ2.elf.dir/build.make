@@ -68,9 +68,23 @@ include CMakeFiles/DZ2.elf.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/DZ2.elf.dir/flags.make
 
+CMakeFiles/DZ2.elf.dir/src/ContactBounce/ContactBounce.cpp.obj: CMakeFiles/DZ2.elf.dir/flags.make
+CMakeFiles/DZ2.elf.dir/src/ContactBounce/ContactBounce.cpp.obj: C:/Users/xyarc/YandexDisk/Byz/Digital\ devices\ and\ microprocessors/DZ2/src/ContactBounce/ContactBounce.cpp
+CMakeFiles/DZ2.elf.dir/src/ContactBounce/ContactBounce.cpp.obj: CMakeFiles/DZ2.elf.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\xyarc\YandexDisk\Byz\Digital devices and microprocessors\DZ2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DZ2.elf.dir/src/ContactBounce/ContactBounce.cpp.obj"
+	C:\PROGRA~2\ARMGNU~1\12977F~1.2MP\bin\AR10B2~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DZ2.elf.dir/src/ContactBounce/ContactBounce.cpp.obj -MF CMakeFiles\DZ2.elf.dir\src\ContactBounce\ContactBounce.cpp.obj.d -o CMakeFiles\DZ2.elf.dir\src\ContactBounce\ContactBounce.cpp.obj -c "C:\Users\xyarc\YandexDisk\Byz\Digital devices and microprocessors\DZ2\src\ContactBounce\ContactBounce.cpp"
+
+CMakeFiles/DZ2.elf.dir/src/ContactBounce/ContactBounce.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DZ2.elf.dir/src/ContactBounce/ContactBounce.cpp.i"
+	C:\PROGRA~2\ARMGNU~1\12977F~1.2MP\bin\AR10B2~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\xyarc\YandexDisk\Byz\Digital devices and microprocessors\DZ2\src\ContactBounce\ContactBounce.cpp" > CMakeFiles\DZ2.elf.dir\src\ContactBounce\ContactBounce.cpp.i
+
+CMakeFiles/DZ2.elf.dir/src/ContactBounce/ContactBounce.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DZ2.elf.dir/src/ContactBounce/ContactBounce.cpp.s"
+	C:\PROGRA~2\ARMGNU~1\12977F~1.2MP\bin\AR10B2~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\xyarc\YandexDisk\Byz\Digital devices and microprocessors\DZ2\src\ContactBounce\ContactBounce.cpp" -o CMakeFiles\DZ2.elf.dir\src\ContactBounce\ContactBounce.cpp.s
+
 CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj: CMakeFiles/DZ2.elf.dir/flags.make
 CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj: C:/Users/xyarc/YandexDisk/Byz/Digital\ devices\ and\ microprocessors/DZ2/src/Startup/startup_stm32f051r8tx.s
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\xyarc\YandexDisk\Byz\Digital devices and microprocessors\DZ2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building ASM object CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\xyarc\YandexDisk\Byz\Digital devices and microprocessors\DZ2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building ASM object CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj"
 	C:\PROGRA~2\ARMGNU~1\12977F~1.2MP\bin\AR19DD~1.EXE $(ASM_DEFINES) $(ASM_INCLUDES) $(ASM_FLAGS) -o CMakeFiles\DZ2.elf.dir\src\Startup\startup_stm32f051r8tx.s.obj -c "C:\Users\xyarc\YandexDisk\Byz\Digital devices and microprocessors\DZ2\src\Startup\startup_stm32f051r8tx.s"
 
 CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.i: cmake_force
@@ -84,7 +98,7 @@ CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.s: cmake_force
 CMakeFiles/DZ2.elf.dir/src/main.c.obj: CMakeFiles/DZ2.elf.dir/flags.make
 CMakeFiles/DZ2.elf.dir/src/main.c.obj: C:/Users/xyarc/YandexDisk/Byz/Digital\ devices\ and\ microprocessors/DZ2/src/main.c
 CMakeFiles/DZ2.elf.dir/src/main.c.obj: CMakeFiles/DZ2.elf.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\xyarc\YandexDisk\Byz\Digital devices and microprocessors\DZ2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/DZ2.elf.dir/src/main.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\xyarc\YandexDisk\Byz\Digital devices and microprocessors\DZ2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/DZ2.elf.dir/src/main.c.obj"
 	C:\PROGRA~2\ARMGNU~1\12977F~1.2MP\bin\AR19DD~1.EXE $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/DZ2.elf.dir/src/main.c.obj -MF CMakeFiles\DZ2.elf.dir\src\main.c.obj.d -o CMakeFiles\DZ2.elf.dir\src\main.c.obj -c "C:\Users\xyarc\YandexDisk\Byz\Digital devices and microprocessors\DZ2\src\main.c"
 
 CMakeFiles/DZ2.elf.dir/src/main.c.i: cmake_force
@@ -97,17 +111,19 @@ CMakeFiles/DZ2.elf.dir/src/main.c.s: cmake_force
 
 # Object files for target DZ2.elf
 DZ2_elf_OBJECTS = \
+"CMakeFiles/DZ2.elf.dir/src/ContactBounce/ContactBounce.cpp.obj" \
 "CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj" \
 "CMakeFiles/DZ2.elf.dir/src/main.c.obj"
 
 # External object files for target DZ2.elf
 DZ2_elf_EXTERNAL_OBJECTS =
 
+DZ2.elf: CMakeFiles/DZ2.elf.dir/src/ContactBounce/ContactBounce.cpp.obj
 DZ2.elf: CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
 DZ2.elf: CMakeFiles/DZ2.elf.dir/src/main.c.obj
 DZ2.elf: CMakeFiles/DZ2.elf.dir/build.make
 DZ2.elf: CMakeFiles/DZ2.elf.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\xyarc\YandexDisk\Byz\Digital devices and microprocessors\DZ2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable DZ2.elf"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\xyarc\YandexDisk\Byz\Digital devices and microprocessors\DZ2\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable DZ2.elf"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\DZ2.elf.dir\link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Building C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/DZ2.hex"
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Building C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/DZ2.bin"

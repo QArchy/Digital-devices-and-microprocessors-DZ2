@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/DZ2.elf.dir/src/ContactBounce/ContactBounce.cpp.obj"
+  "CMakeFiles/DZ2.elf.dir/src/ContactBounce/ContactBounce.cpp.obj.d"
   "CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj"
   "CMakeFiles/DZ2.elf.dir/src/main.c.obj"
   "CMakeFiles/DZ2.elf.dir/src/main.c.obj.d"
@@ -8,6 +10,6 @@ file(REMOVE_RECURSE
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang ASM C)
+foreach(lang ASM C CXX)
   include(CMakeFiles/DZ2.elf.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()
