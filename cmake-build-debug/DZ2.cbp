@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="DZ2"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DZ2.elf">
+				<Option output="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/DZ2.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DDEBUG"/>
+					<Add option="-DUSE_HAL_DRIVER"/>
+					<Add option="-DSTM32F051x8"/>
+					<Add directory="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/Inc"/>
+					<Add directory="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/STM32F0xx_HAL_Driver/Inc"/>
+					<Add directory="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Device/ST/STM32F0xx/Include"/>
+					<Add directory="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include"/>
+					<Add directory="c:\program files (x86)\arm gnu toolchain arm-none-eabi\12.2 mpacbti-rel1\bin\../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/include/c++/12.2.1"/>
+					<Add directory="c:\program files (x86)\arm gnu toolchain arm-none-eabi\12.2 mpacbti-rel1\bin\../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/include/c++/12.2.1/arm-none-eabi"/>
+					<Add directory="c:\program files (x86)\arm gnu toolchain arm-none-eabi\12.2 mpacbti-rel1\bin\../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/include/c++/12.2.1/backward"/>
+					<Add directory="c:\program files (x86)\arm gnu toolchain arm-none-eabi\12.2 mpacbti-rel1\bin\../lib/gcc/arm-none-eabi/12.2.1/include"/>
+					<Add directory="c:\program files (x86)\arm gnu toolchain arm-none-eabi\12.2 mpacbti-rel1\bin\../lib/gcc/arm-none-eabi/12.2.1/include-fixed"/>
+					<Add directory="c:\program files (x86)\arm gnu toolchain arm-none-eabi\12.2 mpacbti-rel1\bin\../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 DZ2.elf"/>
+					<CompileFile command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DZ2.elf/fast">
+				<Option output="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/DZ2.elf" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DDEBUG"/>
+					<Add option="-DUSE_HAL_DRIVER"/>
+					<Add option="-DSTM32F051x8"/>
+					<Add directory="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/Inc"/>
+					<Add directory="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/STM32F0xx_HAL_Driver/Inc"/>
+					<Add directory="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/STM32F0xx_HAL_Driver/Inc/Legacy"/>
+					<Add directory="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Device/ST/STM32F0xx/Include"/>
+					<Add directory="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include"/>
+					<Add directory="c:\program files (x86)\arm gnu toolchain arm-none-eabi\12.2 mpacbti-rel1\bin\../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/include/c++/12.2.1"/>
+					<Add directory="c:\program files (x86)\arm gnu toolchain arm-none-eabi\12.2 mpacbti-rel1\bin\../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/include/c++/12.2.1/arm-none-eabi"/>
+					<Add directory="c:\program files (x86)\arm gnu toolchain arm-none-eabi\12.2 mpacbti-rel1\bin\../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/include/c++/12.2.1/backward"/>
+					<Add directory="c:\program files (x86)\arm gnu toolchain arm-none-eabi\12.2 mpacbti-rel1\bin\../lib/gcc/arm-none-eabi/12.2.1/include"/>
+					<Add directory="c:\program files (x86)\arm gnu toolchain arm-none-eabi\12.2 mpacbti-rel1\bin\../lib/gcc/arm-none-eabi/12.2.1/include-fixed"/>
+					<Add directory="c:\program files (x86)\arm gnu toolchain arm-none-eabi\12.2 mpacbti-rel1\bin\../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 DZ2.elf/fast"/>
+					<CompileFile command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f051x8.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Device/ST/STM32F0xx/LICENSE.txt">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include/cmsis_armcc.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include/cmsis_armclang.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include/cmsis_compiler.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include/cmsis_gcc.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include/cmsis_iccarm.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include/cmsis_version.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include/core_armv8mbl.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include/core_armv8mml.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include/core_cm0.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include/core_cm0plus.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include/core_cm1.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include/core_cm23.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include/core_cm3.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include/core_cm33.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include/core_cm4.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include/core_cm7.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include/core_sc000.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include/core_sc300.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include/mpu_armv7.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include/mpu_armv8.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/Include/tz_context.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/Drivers/CMSIS/LICENSE.txt">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/STM32F051R8TX_FLASH.ld">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/Startup/startup_stm32f051r8tx.s">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/main.c">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
