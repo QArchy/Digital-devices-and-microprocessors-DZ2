@@ -1,3 +1,0 @@
-C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/CMakeFiles/DZ2.elf.dir
-C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/CMakeFiles/rebuild_cache.dir

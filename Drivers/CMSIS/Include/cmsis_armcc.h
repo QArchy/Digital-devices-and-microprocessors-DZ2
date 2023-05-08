@@ -207,8 +207,8 @@ __STATIC_INLINE void __set_PSP(uint32_t topOfProcStack)
 
 
 /**
-  \brief   Get Main Stack Pointer
-  \details Returns the current value of the Main Stack Pointer (MSP).
+  \brief   Get Master Stack Pointer
+  \details Returns the current value of the Master Stack Pointer (MSP).
   \return               MSP Register value
  */
 __STATIC_INLINE uint32_t __get_MSP(void)
@@ -219,9 +219,9 @@ __STATIC_INLINE uint32_t __get_MSP(void)
 
 
 /**
-  \brief   Set Main Stack Pointer
-  \details Assigns the given value to the Main Stack Pointer (MSP).
-  \param [in]    topOfMainStack  Main Stack Pointer value to set
+  \brief   Set Master Stack Pointer
+  \details Assigns the given value to the Master Stack Pointer (MSP).
+  \param [in]    topOfMainStack  Master Stack Pointer value to set
  */
 __STATIC_INLINE void __set_MSP(uint32_t topOfMainStack)
 {

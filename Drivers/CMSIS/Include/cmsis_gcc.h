@@ -294,8 +294,8 @@ __STATIC_FORCEINLINE void __TZ_set_PSP_NS(uint32_t topOfProcStack)
 
 
 /**
-  \brief   Get Main Stack Pointer
-  \details Returns the current value of the Main Stack Pointer (MSP).
+  \brief   Get Master Stack Pointer
+  \details Returns the current value of the Master Stack Pointer (MSP).
   \return               MSP Register value
  */
 __STATIC_FORCEINLINE uint32_t __get_MSP(void)
@@ -309,8 +309,8 @@ __STATIC_FORCEINLINE uint32_t __get_MSP(void)
 
 #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
 /**
-  \brief   Get Main Stack Pointer (non-secure)
-  \details Returns the current value of the non-secure Main Stack Pointer (MSP) when in secure state.
+  \brief   Get Master Stack Pointer (non-secure)
+  \details Returns the current value of the non-secure Master Stack Pointer (MSP) when in secure state.
   \return               MSP Register value
  */
 __STATIC_FORCEINLINE uint32_t __TZ_get_MSP_NS(void)
@@ -324,9 +324,9 @@ __STATIC_FORCEINLINE uint32_t __TZ_get_MSP_NS(void)
 
 
 /**
-  \brief   Set Main Stack Pointer
-  \details Assigns the given value to the Main Stack Pointer (MSP).
-  \param [in]    topOfMainStack  Main Stack Pointer value to set
+  \brief   Set Master Stack Pointer
+  \details Assigns the given value to the Master Stack Pointer (MSP).
+  \param [in]    topOfMainStack  Master Stack Pointer value to set
  */
 __STATIC_FORCEINLINE void __set_MSP(uint32_t topOfMainStack)
 {
@@ -336,9 +336,9 @@ __STATIC_FORCEINLINE void __set_MSP(uint32_t topOfMainStack)
 
 #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
 /**
-  \brief   Set Main Stack Pointer (non-secure)
-  \details Assigns the given value to the non-secure Main Stack Pointer (MSP) when in secure state.
-  \param [in]    topOfMainStack  Main Stack Pointer value to set
+  \brief   Set Master Stack Pointer (non-secure)
+  \details Assigns the given value to the non-secure Master Stack Pointer (MSP) when in secure state.
+  \param [in]    topOfMainStack  Master Stack Pointer value to set
  */
 __STATIC_FORCEINLINE void __TZ_set_MSP_NS(uint32_t topOfMainStack)
 {
@@ -582,7 +582,7 @@ __STATIC_FORCEINLINE void __TZ_set_FAULTMASK_NS(uint32_t faultMask)
 
 /**
   \brief   Get Process Stack Pointer Limit
-  Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+  Devices without ARMv8-M Master Extensions (i.e. Cortex-M23) lack the non-secure
   Stack Pointer Limit register hence zero is returned always in non-secure
   mode.
   
@@ -605,7 +605,7 @@ __STATIC_FORCEINLINE uint32_t __get_PSPLIM(void)
 #if (defined (__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3))
 /**
   \brief   Get Process Stack Pointer Limit (non-secure)
-  Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+  Devices without ARMv8-M Master Extensions (i.e. Cortex-M23) lack the non-secure
   Stack Pointer Limit register hence zero is returned always.
 
   \details Returns the current value of the non-secure Process Stack Pointer Limit (PSPLIM) when in secure state.
@@ -627,7 +627,7 @@ __STATIC_FORCEINLINE uint32_t __TZ_get_PSPLIM_NS(void)
 
 /**
   \brief   Set Process Stack Pointer Limit
-  Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+  Devices without ARMv8-M Master Extensions (i.e. Cortex-M23) lack the non-secure
   Stack Pointer Limit register hence the write is silently ignored in non-secure
   mode.
   
@@ -649,7 +649,7 @@ __STATIC_FORCEINLINE void __set_PSPLIM(uint32_t ProcStackPtrLimit)
 #if (defined (__ARM_FEATURE_CMSE  ) && (__ARM_FEATURE_CMSE   == 3))
 /**
   \brief   Set Process Stack Pointer (non-secure)
-  Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+  Devices without ARMv8-M Master Extensions (i.e. Cortex-M23) lack the non-secure
   Stack Pointer Limit register hence the write is silently ignored.
 
   \details Assigns the given value to the non-secure Process Stack Pointer Limit (PSPLIM) when in secure state.
@@ -668,12 +668,12 @@ __STATIC_FORCEINLINE void __TZ_set_PSPLIM_NS(uint32_t ProcStackPtrLimit)
 
 
 /**
-  \brief   Get Main Stack Pointer Limit
-  Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+  \brief   Get Master Stack Pointer Limit
+  Devices without ARMv8-M Master Extensions (i.e. Cortex-M23) lack the non-secure
   Stack Pointer Limit register hence zero is returned always in non-secure
   mode.
 
-  \details Returns the current value of the Main Stack Pointer Limit (MSPLIM).
+  \details Returns the current value of the Master Stack Pointer Limit (MSPLIM).
   \return               MSPLIM Register value
  */
 __STATIC_FORCEINLINE uint32_t __get_MSPLIM(void)
@@ -692,11 +692,11 @@ __STATIC_FORCEINLINE uint32_t __get_MSPLIM(void)
 
 #if (defined (__ARM_FEATURE_CMSE  ) && (__ARM_FEATURE_CMSE   == 3))
 /**
-  \brief   Get Main Stack Pointer Limit (non-secure)
-  Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+  \brief   Get Master Stack Pointer Limit (non-secure)
+  Devices without ARMv8-M Master Extensions (i.e. Cortex-M23) lack the non-secure
   Stack Pointer Limit register hence zero is returned always.
 
-  \details Returns the current value of the non-secure Main Stack Pointer Limit(MSPLIM) when in secure state.
+  \details Returns the current value of the non-secure Master Stack Pointer Limit(MSPLIM) when in secure state.
   \return               MSPLIM Register value
  */
 __STATIC_FORCEINLINE uint32_t __TZ_get_MSPLIM_NS(void)
@@ -714,13 +714,13 @@ __STATIC_FORCEINLINE uint32_t __TZ_get_MSPLIM_NS(void)
 
 
 /**
-  \brief   Set Main Stack Pointer Limit
-  Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+  \brief   Set Master Stack Pointer Limit
+  Devices without ARMv8-M Master Extensions (i.e. Cortex-M23) lack the non-secure
   Stack Pointer Limit register hence the write is silently ignored in non-secure
   mode.
 
-  \details Assigns the given value to the Main Stack Pointer Limit (MSPLIM).
-  \param [in]    MainStackPtrLimit  Main Stack Pointer Limit value to set
+  \details Assigns the given value to the Master Stack Pointer Limit (MSPLIM).
+  \param [in]    MainStackPtrLimit  Master Stack Pointer Limit value to set
  */
 __STATIC_FORCEINLINE void __set_MSPLIM(uint32_t MainStackPtrLimit)
 {
@@ -736,12 +736,12 @@ __STATIC_FORCEINLINE void __set_MSPLIM(uint32_t MainStackPtrLimit)
 
 #if (defined (__ARM_FEATURE_CMSE  ) && (__ARM_FEATURE_CMSE   == 3))
 /**
-  \brief   Set Main Stack Pointer Limit (non-secure)
-  Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+  \brief   Set Master Stack Pointer Limit (non-secure)
+  Devices without ARMv8-M Master Extensions (i.e. Cortex-M23) lack the non-secure
   Stack Pointer Limit register hence the write is silently ignored.
 
-  \details Assigns the given value to the non-secure Main Stack Pointer Limit (MSPLIM) when in secure state.
-  \param [in]    MainStackPtrLimit  Main Stack Pointer value to set
+  \details Assigns the given value to the non-secure Master Stack Pointer Limit (MSPLIM) when in secure state.
+  \param [in]    MainStackPtrLimit  Master Stack Pointer value to set
  */
 __STATIC_FORCEINLINE void __TZ_set_MSPLIM_NS(uint32_t MainStackPtrLimit)
 {

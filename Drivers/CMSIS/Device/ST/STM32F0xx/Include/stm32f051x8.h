@@ -1276,7 +1276,7 @@ typedef struct
 #define DAC_CR_EN1                  DAC_CR_EN1_Msk                             /*!< DAC channel1 enable */
 #define DAC_CR_BOFF1_Pos            (1U)
 #define DAC_CR_BOFF1_Msk            (0x1UL << DAC_CR_BOFF1_Pos)                 /*!< 0x00000002 */
-#define DAC_CR_BOFF1                DAC_CR_BOFF1_Msk                           /*!< DAC channel1 output buffer disable */
+#define DAC_CR_BOFF1                DAC_CR_BOFF1_Msk                           /*!< DAC channel1 output tx_buffer disable */
 #define DAC_CR_TEN1_Pos             (2U)
 #define DAC_CR_TEN1_Msk             (0x1UL << DAC_CR_TEN1_Pos)                  /*!< 0x00000004 */
 #define DAC_CR_TEN1                 DAC_CR_TEN1_Msk                            /*!< DAC channel1 Trigger enable */
@@ -4475,10 +4475,10 @@ typedef struct
 #define SPI_CR2_ERRIE               SPI_CR2_ERRIE_Msk                          /*!< Error Interrupt Enable */
 #define SPI_CR2_RXNEIE_Pos          (6U)
 #define SPI_CR2_RXNEIE_Msk          (0x1UL << SPI_CR2_RXNEIE_Pos)               /*!< 0x00000040 */
-#define SPI_CR2_RXNEIE              SPI_CR2_RXNEIE_Msk                         /*!< RX buffer Not Empty Interrupt Enable */
+#define SPI_CR2_RXNEIE              SPI_CR2_RXNEIE_Msk                         /*!< RX tx_buffer Not Empty Interrupt Enable */
 #define SPI_CR2_TXEIE_Pos           (7U)
 #define SPI_CR2_TXEIE_Msk           (0x1UL << SPI_CR2_TXEIE_Pos)                /*!< 0x00000080 */
-#define SPI_CR2_TXEIE               SPI_CR2_TXEIE_Msk                          /*!< Tx buffer Empty Interrupt Enable */
+#define SPI_CR2_TXEIE               SPI_CR2_TXEIE_Msk                          /*!< Tx tx_buffer Empty Interrupt Enable */
 #define SPI_CR2_DS_Pos              (8U)
 #define SPI_CR2_DS_Msk              (0xFUL << SPI_CR2_DS_Pos)                   /*!< 0x00000F00 */
 #define SPI_CR2_DS                  SPI_CR2_DS_Msk                             /*!< DS[3:0] Data Size */
@@ -4499,10 +4499,10 @@ typedef struct
 /********************  Bit definition for SPI_SR register  *******************/
 #define SPI_SR_RXNE_Pos             (0U)
 #define SPI_SR_RXNE_Msk             (0x1UL << SPI_SR_RXNE_Pos)                  /*!< 0x00000001 */
-#define SPI_SR_RXNE                 SPI_SR_RXNE_Msk                            /*!< Receive buffer Not Empty */
+#define SPI_SR_RXNE                 SPI_SR_RXNE_Msk                            /*!< Receive tx_buffer Not Empty */
 #define SPI_SR_TXE_Pos              (1U)
 #define SPI_SR_TXE_Msk              (0x1UL << SPI_SR_TXE_Pos)                   /*!< 0x00000002 */
-#define SPI_SR_TXE                  SPI_SR_TXE_Msk                             /*!< Transmit buffer Empty */
+#define SPI_SR_TXE                  SPI_SR_TXE_Msk                             /*!< Transmit tx_buffer Empty */
 #define SPI_SR_CHSIDE_Pos           (2U)
 #define SPI_SR_CHSIDE_Msk           (0x1UL << SPI_SR_CHSIDE_Pos)                /*!< 0x00000004 */
 #define SPI_SR_CHSIDE               SPI_SR_CHSIDE_Msk                          /*!< Channel side */
@@ -5375,7 +5375,7 @@ typedef struct
 #define TIM_BDTR_AOE              TIM_BDTR_AOE_Msk                             /*!<Automatic Output enable */
 #define TIM_BDTR_MOE_Pos          (15U)
 #define TIM_BDTR_MOE_Msk          (0x1UL << TIM_BDTR_MOE_Pos)                   /*!< 0x00008000 */
-#define TIM_BDTR_MOE              TIM_BDTR_MOE_Msk                             /*!<Main Output enable */
+#define TIM_BDTR_MOE              TIM_BDTR_MOE_Msk                             /*!<Master Output enable */
 
 /*******************  Bit definition for TIM_DCR register  *******************/
 #define TIM_DCR_DBA_Pos           (0U)

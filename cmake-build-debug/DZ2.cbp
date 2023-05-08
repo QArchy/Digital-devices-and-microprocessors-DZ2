@@ -171,13 +171,31 @@
 		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/STM32F051R8TX_FLASH.ld">
 			<Option target="DZ2.elf"/>
 		</Unit>
-		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/ContactBounce/ContactBounce.cpp">
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/BUFFER/buffer.c">
 			<Option target="DZ2.elf"/>
 		</Unit>
-		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/ContactBounce/ContactBounce.h">
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/BUFFER/buffer.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/BUTTON/button_setup.c">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/BUTTON/button_setup.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/FLASH/flash.c">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/FLASH/flash.h">
 			<Option target="DZ2.elf"/>
 		</Unit>
 		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/Startup/startup_stm32f051r8tx.s">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/USART/usart_setup.c">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/USART/usart_setup.h">
 			<Option target="DZ2.elf"/>
 		</Unit>
 		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/main.c">
