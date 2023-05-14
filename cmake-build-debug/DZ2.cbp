@@ -213,9 +213,6 @@
 		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/main.c">
 			<Option target="DZ2.elf"/>
 		</Unit>
-		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/tmp.txt">
-			<Option target="DZ2.elf"/>
-		</Unit>
 		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

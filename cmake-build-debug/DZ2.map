@@ -154,8 +154,6 @@ Discarded input sections
  .bss           0x00000000        0x0 CMakeFiles/DZ2.elf.dir/src/main.c.obj
  .text.TEST_FLASH
                 0x00000000       0x50 CMakeFiles/DZ2.elf.dir/src/main.c.obj
- .bss.press_counter
-                0x00000000        0x1 CMakeFiles/DZ2.elf.dir/src/main.c.obj
  .data.sample_1024
                 0x00000000      0x401 CMakeFiles/DZ2.elf.dir/src/main.c.obj
  .text          0x00000000        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-exit.o)
@@ -468,7 +466,7 @@ LOAD c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb
                 0x08000000                g_pfnVectors
                 0x080000c0                        . = ALIGN (0x4)
 
-.text           0x080000c0      0x5d0
+.text           0x080000c0      0x688
                 0x080000c0                        . = ALIGN (0x4)
  *(.text)
  *(.text*)
@@ -486,239 +484,253 @@ LOAD c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb
                 0x0800019c       0x4c CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
  .text.setup_EXTI0_BUTTON_INTERRUPT
                 0x080001e8       0x38 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
- .text.setup_BUTTON
-                0x08000220       0x20 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
-                0x08000220                setup_BUTTON
- .text.setup_DMA_TX
-                0x08000240       0x38 CMakeFiles/DZ2.elf.dir/src/DMA/dma.c.obj
- .text.setup_DMA_RX
-                0x08000278       0x38 CMakeFiles/DZ2.elf.dir/src/DMA/dma.c.obj
- .text.setup_DMA_EN
-                0x080002b0       0x40 CMakeFiles/DZ2.elf.dir/src/DMA/dma.c.obj
- .text.setup_DMA
-                0x080002f0       0x24 CMakeFiles/DZ2.elf.dir/src/DMA/dma.c.obj
-                0x080002f0                setup_DMA
- .text.setup_GPIO
-                0x08000314       0x38 CMakeFiles/DZ2.elf.dir/src/GPIO/setup_GPIO.c.obj
-                0x08000314                setup_GPIO
- .text.Reset_Handler
-                0x0800034c       0x4c CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
-                0x0800034c                Reset_Handler
- .text.Default_Handler
-                0x08000398        0x2 CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
-                0x08000398                TIM1_CC_IRQHandler
-                0x08000398                TSC_IRQHandler
-                0x08000398                HardFault_Handler
-                0x08000398                ADC1_COMP_IRQHandler
-                0x08000398                SysTick_Handler
-                0x08000398                PVD_IRQHandler
-                0x08000398                PendSV_Handler
-                0x08000398                NMI_Handler
-                0x08000398                I2C1_IRQHandler
-                0x08000398                RCC_CRS_IRQHandler
-                0x08000398                SPI1_IRQHandler
-                0x08000398                TIM6_DAC_IRQHandler
-                0x08000398                EXTI2_3_IRQHandler
-                0x08000398                I2C2_IRQHandler
-                0x08000398                TIM17_IRQHandler
-                0x08000398                CEC_CAN_IRQHandler
-                0x08000398                RTC_IRQHandler
-                0x08000398                TIM16_IRQHandler
-                0x08000398                EXTI4_15_IRQHandler
-                0x08000398                DMA1_Channel1_IRQHandler
-                0x08000398                Default_Handler
-                0x08000398                TIM14_IRQHandler
-                0x08000398                DMA1_Channel4_5_IRQHandler
-                0x08000398                TIM15_IRQHandler
-                0x08000398                SPI2_IRQHandler
-                0x08000398                SVC_Handler
-                0x08000398                WWDG_IRQHandler
-                0x08000398                USART2_IRQHandler
-                0x08000398                FLASH_IRQHandler
-                0x08000398                USART1_IRQHandler
-                0x08000398                TIM1_BRK_UP_TRG_COM_IRQHandler
- .text.setup_USART1_GPIO
-                0x0800039a       0x1a CMakeFiles/DZ2.elf.dir/src/USART1/usart1_setup.c.obj
-                0x0800039a                setup_USART1_GPIO
- .text.setup_USART1_GENERAL
-                0x080003b4       0x28 CMakeFiles/DZ2.elf.dir/src/USART1/usart1_setup.c.obj
-                0x080003b4                setup_USART1_GENERAL
- .text.setup_USART1
-                0x080003dc       0x1c CMakeFiles/DZ2.elf.dir/src/USART1/usart1_setup.c.obj
-                0x080003dc                setup_USART1
  .text.EXTI0_1_IRQHandler
-                0x080003f8       0x50 CMakeFiles/DZ2.elf.dir/src/main.c.obj
-                0x080003f8                EXTI0_1_IRQHandler
+                0x08000220       0xb8 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
+                0x08000220                EXTI0_1_IRQHandler
  .text.TIM2_IRQHandler
-                0x08000448       0x60 CMakeFiles/DZ2.elf.dir/src/main.c.obj
-                0x08000448                TIM2_IRQHandler
+                0x080002d8       0x68 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
+                0x080002d8                TIM2_IRQHandler
  .text.TIM3_IRQHandler
-                0x080004a8       0x34 CMakeFiles/DZ2.elf.dir/src/main.c.obj
-                0x080004a8                TIM3_IRQHandler
+                0x08000340       0x78 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
+                0x08000340                TIM3_IRQHandler
+ .text.setup_BUTTON
+                0x080003b8       0x20 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
+                0x080003b8                setup_BUTTON
+ .text.setup_DMA_TX
+                0x080003d8       0x38 CMakeFiles/DZ2.elf.dir/src/DMA/dma.c.obj
+ .text.setup_DMA_RX
+                0x08000410       0x38 CMakeFiles/DZ2.elf.dir/src/DMA/dma.c.obj
+ .text.setup_DMA_EN
+                0x08000448       0x40 CMakeFiles/DZ2.elf.dir/src/DMA/dma.c.obj
+ .text.setup_DMA
+                0x08000488       0x24 CMakeFiles/DZ2.elf.dir/src/DMA/dma.c.obj
+                0x08000488                setup_DMA
+ .text.setup_GPIO
+                0x080004ac       0x38 CMakeFiles/DZ2.elf.dir/src/GPIO/setup_GPIO.c.obj
+                0x080004ac                setup_GPIO
+ .text.Reset_Handler
+                0x080004e4       0x4c CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
+                0x080004e4                Reset_Handler
+ .text.Default_Handler
+                0x08000530        0x2 CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
+                0x08000530                TIM1_CC_IRQHandler
+                0x08000530                TSC_IRQHandler
+                0x08000530                HardFault_Handler
+                0x08000530                ADC1_COMP_IRQHandler
+                0x08000530                SysTick_Handler
+                0x08000530                PVD_IRQHandler
+                0x08000530                PendSV_Handler
+                0x08000530                NMI_Handler
+                0x08000530                I2C1_IRQHandler
+                0x08000530                RCC_CRS_IRQHandler
+                0x08000530                SPI1_IRQHandler
+                0x08000530                TIM6_DAC_IRQHandler
+                0x08000530                EXTI2_3_IRQHandler
+                0x08000530                I2C2_IRQHandler
+                0x08000530                TIM17_IRQHandler
+                0x08000530                CEC_CAN_IRQHandler
+                0x08000530                RTC_IRQHandler
+                0x08000530                TIM16_IRQHandler
+                0x08000530                EXTI4_15_IRQHandler
+                0x08000530                DMA1_Channel1_IRQHandler
+                0x08000530                Default_Handler
+                0x08000530                TIM14_IRQHandler
+                0x08000530                DMA1_Channel4_5_IRQHandler
+                0x08000530                TIM15_IRQHandler
+                0x08000530                SPI2_IRQHandler
+                0x08000530                SVC_Handler
+                0x08000530                WWDG_IRQHandler
+                0x08000530                USART2_IRQHandler
+                0x08000530                FLASH_IRQHandler
+                0x08000530                USART1_IRQHandler
+                0x08000530                TIM1_BRK_UP_TRG_COM_IRQHandler
+ .text.setup_USART1_GPIO
+                0x08000532       0x1a CMakeFiles/DZ2.elf.dir/src/USART1/usart1_setup.c.obj
+                0x08000532                setup_USART1_GPIO
+ .text.setup_USART1_GENERAL
+                0x0800054c       0x28 CMakeFiles/DZ2.elf.dir/src/USART1/usart1_setup.c.obj
+                0x0800054c                setup_USART1_GENERAL
+ .text.setup_USART1
+                0x08000574       0x1c CMakeFiles/DZ2.elf.dir/src/USART1/usart1_setup.c.obj
+                0x08000574                setup_USART1
  .text.DMA1_Channel2_3_IRQHandler
-                0x080004dc       0x2c CMakeFiles/DZ2.elf.dir/src/main.c.obj
-                0x080004dc                DMA1_Channel2_3_IRQHandler
+                0x08000590       0x30 CMakeFiles/DZ2.elf.dir/src/main.c.obj
+                0x08000590                DMA1_Channel2_3_IRQHandler
  .text.setup_PERIPHERALS
-                0x08000508       0x20 CMakeFiles/DZ2.elf.dir/src/main.c.obj
-                0x08000508                setup_PERIPHERALS
- .text.main     0x08000528        0x8 CMakeFiles/DZ2.elf.dir/src/main.c.obj
-                0x08000528                main
+                0x080005c0       0x20 CMakeFiles/DZ2.elf.dir/src/main.c.obj
+                0x080005c0                setup_PERIPHERALS
+ .text.main     0x080005e0        0x8 CMakeFiles/DZ2.elf.dir/src/main.c.obj
+                0x080005e0                main
  .text.__libc_init_array
-                0x08000530       0x48 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-init.o)
-                0x08000530                __libc_init_array
+                0x080005e8       0x48 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-init.o)
+                0x080005e8                __libc_init_array
  .text.__retarget_lock_acquire_recursive
-                0x08000578        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-lock.o)
-                0x08000578                __retarget_lock_acquire_recursive
+                0x08000630        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-lock.o)
+                0x08000630                __retarget_lock_acquire_recursive
  .text.__retarget_lock_release_recursive
-                0x0800057c        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-lock.o)
-                0x0800057c                __retarget_lock_release_recursive
+                0x08000634        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-lock.o)
+                0x08000634                __retarget_lock_release_recursive
  .text.startup.register_fini
-                0x08000580       0x18 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__call_atexit.o)
- .text.atexit   0x08000598       0x10 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-atexit.o)
-                0x08000598                atexit
+                0x08000638       0x18 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__call_atexit.o)
+ .text.atexit   0x08000650       0x10 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-atexit.o)
+                0x08000650                atexit
  .text.__libc_fini_array
-                0x080005a8       0x28 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-fini.o)
-                0x080005a8                __libc_fini_array
+                0x08000660       0x28 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-fini.o)
+                0x08000660                __libc_fini_array
  .text.__register_exitproc
-                0x080005d0       0xa8 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__atexit.o)
-                0x080005d0                __register_exitproc
+                0x08000688       0xa8 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__atexit.o)
+                0x08000688                __register_exitproc
  *(.glue_7)
- .glue_7        0x08000678        0x0 linker stubs
+ .glue_7        0x08000730        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x08000678        0x0 linker stubs
+ .glue_7t       0x08000730        0x0 linker stubs
  *(.eh_frame)
- .eh_frame      0x08000678        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
+ .eh_frame      0x08000730        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
  *(.init)
- .init          0x08000678        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crti.o
-                0x08000678                _init
- .init          0x0800067c        0x8 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtn.o
+ .init          0x08000730        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crti.o
+                0x08000730                _init
+ .init          0x08000734        0x8 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtn.o
  *(.fini)
- .fini          0x08000684        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crti.o
-                0x08000684                _fini
- .fini          0x08000688        0x8 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtn.o
-                0x08000690                        . = ALIGN (0x4)
-                0x08000690                        _etext = .
+ .fini          0x0800073c        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crti.o
+                0x0800073c                _fini
+ .fini          0x08000740        0x8 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtn.o
+                0x08000748                        . = ALIGN (0x4)
+                0x08000748                        _etext = .
 
-.vfp11_veneer   0x08000690        0x0
- .vfp11_veneer  0x08000690        0x0 linker stubs
+.vfp11_veneer   0x08000748        0x0
+ .vfp11_veneer  0x08000748        0x0 linker stubs
 
-.v4_bx          0x08000690        0x0
- .v4_bx         0x08000690        0x0 linker stubs
+.v4_bx          0x08000748        0x0
+ .v4_bx         0x08000748        0x0 linker stubs
 
-.iplt           0x08000690        0x0
- .iplt          0x08000690        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
+.iplt           0x08000748        0x0
+ .iplt          0x08000748        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
 
-.rel.dyn        0x08000690        0x0
- .rel.iplt      0x08000690        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
+.rel.dyn        0x08000748        0x0
+ .rel.iplt      0x08000748        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
 
-.rodata         0x08000690        0x0
-                0x08000690                        . = ALIGN (0x4)
+.rodata         0x08000748        0x0
+                0x08000748                        . = ALIGN (0x4)
  *(.rodata)
  *(.rodata*)
-                0x08000690                        . = ALIGN (0x4)
+                0x08000748                        . = ALIGN (0x4)
 
-.ARM.extab      0x08000690        0x0
-                0x08000690                        . = ALIGN (0x4)
+.ARM.extab      0x08000748        0x0
+                0x08000748                        . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x08000690                        . = ALIGN (0x4)
+                0x08000748                        . = ALIGN (0x4)
 
-.ARM            0x08000690        0x0
-                0x08000690                        . = ALIGN (0x4)
-                0x08000690                        __exidx_start = .
+.ARM            0x08000748        0x0
+                0x08000748                        . = ALIGN (0x4)
+                0x08000748                        __exidx_start = .
  *(.ARM.exidx*)
-                0x08000690                        __exidx_end = .
-                0x08000690                        . = ALIGN (0x4)
+                0x08000748                        __exidx_end = .
+                0x08000748                        . = ALIGN (0x4)
 
-.preinit_array  0x08000690        0x0
-                0x08000690                        . = ALIGN (0x4)
-                0x08000690                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x08000748        0x0
+                0x08000748                        . = ALIGN (0x4)
+                0x08000748                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x08000690                        PROVIDE (__preinit_array_end = .)
-                0x08000690                        . = ALIGN (0x4)
+                0x08000748                        PROVIDE (__preinit_array_end = .)
+                0x08000748                        . = ALIGN (0x4)
 
-.init_array     0x08000690        0x8
-                0x08000690                        . = ALIGN (0x4)
-                0x08000690                        PROVIDE (__init_array_start = .)
+.init_array     0x08000748        0x8
+                0x08000748                        . = ALIGN (0x4)
+                0x08000748                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  .init_array.00000
-                0x08000690        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__call_atexit.o)
+                0x08000748        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__call_atexit.o)
  *(.init_array*)
- .init_array    0x08000694        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
-                0x08000698                        PROVIDE (__init_array_end = .)
-                0x08000698                        . = ALIGN (0x4)
+ .init_array    0x0800074c        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
+                0x08000750                        PROVIDE (__init_array_end = .)
+                0x08000750                        . = ALIGN (0x4)
 
-.fini_array     0x08000698        0x4
-                0x08000698                        . = ALIGN (0x4)
-                0x08000698                        PROVIDE (__fini_array_start = .)
+.fini_array     0x08000750        0x4
+                0x08000750                        . = ALIGN (0x4)
+                0x08000750                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x08000698        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
-                0x0800069c                        PROVIDE (__fini_array_end = .)
-                0x0800069c                        . = ALIGN (0x4)
-                0x0800069c                        _sidata = LOADADDR (.data)
+ .fini_array    0x08000750        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
+                0x08000754                        PROVIDE (__fini_array_end = .)
+                0x08000754                        . = ALIGN (0x4)
+                0x08000754                        _sidata = LOADADDR (.data)
 
-.data           0x20000000        0x4 load address 0x0800069c
+.data           0x20000000        0x8 load address 0x08000754
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sdata = .
  *(.data)
  *(.data*)
+ .data.timer3_init
+                0x20000000        0x1 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
+                0x20000000                timer3_init
+ .data.timer2_init
+                0x20000001        0x1 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
+                0x20000001                timer2_init
+ *fill*         0x20000002        0x2 
  .data.__atexit_recursive_mutex
-                0x20000000        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__call_atexit.o)
-                0x20000000                __atexit_recursive_mutex
+                0x20000004        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__call_atexit.o)
+                0x20000004                __atexit_recursive_mutex
  *(.RamFunc)
  *(.RamFunc*)
-                0x20000004                        . = ALIGN (0x4)
-                0x20000004                        _edata = .
+                0x20000008                        . = ALIGN (0x4)
+                0x20000008                        _edata = .
 
 .tm_clone_table
-                0x20000004        0x0 load address 0x080006a0
+                0x20000008        0x0 load address 0x0800075c
  .tm_clone_table
-                0x20000004        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
+                0x20000008        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
  .tm_clone_table
-                0x20000004        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtend.o
+                0x20000008        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtend.o
 
-.igot.plt       0x20000004        0x0 load address 0x080006a0
- .igot.plt      0x20000004        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
-                0x20000004                        . = ALIGN (0x4)
+.igot.plt       0x20000008        0x0 load address 0x0800075c
+ .igot.plt      0x20000008        0x0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
+                0x20000008                        . = ALIGN (0x4)
 
-.bss            0x20000004      0x9c8 load address 0x080006a0
-                0x20000004                        _sbss = .
-                0x20000004                        __bss_start__ = _sbss
+.bss            0x20000008      0x9c8 load address 0x0800075c
+                0x20000008                        _sbss = .
+                0x20000008                        __bss_start__ = _sbss
  *(.bss)
  *(.bss*)
  .bss.completed.1
-                0x20000004        0x1 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
- *fill*         0x20000005        0x3 
- .bss.object.0  0x20000008       0x18 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
- .bss.state     0x20000020        0x1 CMakeFiles/DZ2.elf.dir/src/main.c.obj
-                0x20000020                state
- *fill*         0x20000021        0x3 
+                0x20000008        0x1 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
+ *fill*         0x20000009        0x3 
+ .bss.object.0  0x2000000c       0x18 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp/crtbegin.o
+ .bss.press_counter
+                0x20000024        0x1 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
+                0x20000024                press_counter
+ .bss.catch_contact_bounce_flag
+                0x20000025        0x1 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
+                0x20000025                catch_contact_bounce_flag
+ .bss.button_release_flag
+                0x20000026        0x1 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
+                0x20000026                button_release_flag
+ .bss.state     0x20000027        0x1 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
+                0x20000027                state
  .bss.rx_buffer
-                0x20000024      0x406 CMakeFiles/DZ2.elf.dir/src/main.c.obj
-                0x20000024                rx_buffer
- *fill*         0x2000042a        0x2 
+                0x20000028      0x406 CMakeFiles/DZ2.elf.dir/src/main.c.obj
+                0x20000028                rx_buffer
+ *fill*         0x2000042e        0x2 
  .bss.tx_buffer
-                0x2000042c      0x406 CMakeFiles/DZ2.elf.dir/src/main.c.obj
-                0x2000042c                tx_buffer
- *fill*         0x20000832        0x2 
+                0x20000430      0x406 CMakeFiles/DZ2.elf.dir/src/main.c.obj
+                0x20000430                tx_buffer
+ *fill*         0x20000836        0x2 
  .bss.__lock___atexit_recursive_mutex
-                0x20000834        0x1 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-lock.o)
-                0x20000834                __lock___atexit_recursive_mutex
- *fill*         0x20000835        0x3 
- .bss.__atexit  0x20000838        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__call_atexit.o)
-                0x20000838                __atexit
+                0x20000838        0x1 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-lock.o)
+                0x20000838                __lock___atexit_recursive_mutex
+ *fill*         0x20000839        0x3 
+ .bss.__atexit  0x2000083c        0x4 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__call_atexit.o)
+                0x2000083c                __atexit
  .bss.__atexit0
-                0x2000083c      0x190 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__atexit.o)
-                0x2000083c                __atexit0
+                0x20000840      0x190 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__atexit.o)
+                0x20000840                __atexit0
  *(COMMON)
-                0x200009cc                        . = ALIGN (0x4)
-                0x200009cc                        _ebss = .
-                0x200009cc                        __bss_end__ = _ebss
+                0x200009d0                        . = ALIGN (0x4)
+                0x200009d0                        _ebss = .
+                0x200009d0                        __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x200009cc      0x604 load address 0x080006a0
+                0x200009d0      0x600 load address 0x0800075c
                 0x200009d0                        . = ALIGN (0x8)
- *fill*         0x200009cc        0x4 
                 [!provide]                        PROVIDE (end = .)
                 [!provide]                        PROVIDE (_end = .)
                 0x20000bd0                        . = (. + _Min_Heap_Size)
@@ -773,21 +785,21 @@ LOAD c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb
 LOAD c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libm.a
 LOAD c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libgcc.a
 
-.debug_info     0x00000000     0x1930
- .debug_info    0x00000000      0x736 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
- .debug_info    0x00000736      0x6a8 CMakeFiles/DZ2.elf.dir/src/DMA/dma.c.obj
- .debug_info    0x00000dde      0x1f8 CMakeFiles/DZ2.elf.dir/src/GPIO/setup_GPIO.c.obj
- .debug_info    0x00000fd6       0x30 CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
- .debug_info    0x00001006      0x310 CMakeFiles/DZ2.elf.dir/src/USART1/usart1_setup.c.obj
- .debug_info    0x00001316      0x61a CMakeFiles/DZ2.elf.dir/src/main.c.obj
+.debug_info     0x00000000     0x18c3
+ .debug_info    0x00000000      0x8bc CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
+ .debug_info    0x000008bc      0x6a8 CMakeFiles/DZ2.elf.dir/src/DMA/dma.c.obj
+ .debug_info    0x00000f64      0x1f8 CMakeFiles/DZ2.elf.dir/src/GPIO/setup_GPIO.c.obj
+ .debug_info    0x0000115c       0x30 CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
+ .debug_info    0x0000118c      0x310 CMakeFiles/DZ2.elf.dir/src/USART1/usart1_setup.c.obj
+ .debug_info    0x0000149c      0x427 CMakeFiles/DZ2.elf.dir/src/main.c.obj
 
-.debug_abbrev   0x00000000      0x7bf
- .debug_abbrev  0x00000000      0x1d8 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
- .debug_abbrev  0x000001d8      0x22f CMakeFiles/DZ2.elf.dir/src/DMA/dma.c.obj
- .debug_abbrev  0x00000407       0xb3 CMakeFiles/DZ2.elf.dir/src/GPIO/setup_GPIO.c.obj
- .debug_abbrev  0x000004ba       0x24 CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
- .debug_abbrev  0x000004de       0xd8 CMakeFiles/DZ2.elf.dir/src/USART1/usart1_setup.c.obj
- .debug_abbrev  0x000005b6      0x209 CMakeFiles/DZ2.elf.dir/src/main.c.obj
+.debug_abbrev   0x00000000      0x7db
+ .debug_abbrev  0x00000000      0x21c CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
+ .debug_abbrev  0x0000021c      0x22f CMakeFiles/DZ2.elf.dir/src/DMA/dma.c.obj
+ .debug_abbrev  0x0000044b       0xb3 CMakeFiles/DZ2.elf.dir/src/GPIO/setup_GPIO.c.obj
+ .debug_abbrev  0x000004fe       0x24 CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
+ .debug_abbrev  0x00000522       0xd8 CMakeFiles/DZ2.elf.dir/src/USART1/usart1_setup.c.obj
+ .debug_abbrev  0x000005fa      0x1e1 CMakeFiles/DZ2.elf.dir/src/main.c.obj
 
 .debug_loclists
                 0x00000000       0xfe
@@ -800,54 +812,54 @@ LOAD c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb
 
 .debug_aranges  0x00000000      0x138
  .debug_aranges
-                0x00000000       0x38 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
+                0x00000000       0x50 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
  .debug_aranges
-                0x00000038       0x38 CMakeFiles/DZ2.elf.dir/src/DMA/dma.c.obj
+                0x00000050       0x38 CMakeFiles/DZ2.elf.dir/src/DMA/dma.c.obj
  .debug_aranges
-                0x00000070       0x20 CMakeFiles/DZ2.elf.dir/src/GPIO/setup_GPIO.c.obj
+                0x00000088       0x20 CMakeFiles/DZ2.elf.dir/src/GPIO/setup_GPIO.c.obj
  .debug_aranges
-                0x00000090       0x28 CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
+                0x000000a8       0x28 CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
  .debug_aranges
-                0x000000b8       0x30 CMakeFiles/DZ2.elf.dir/src/USART1/usart1_setup.c.obj
+                0x000000d0       0x30 CMakeFiles/DZ2.elf.dir/src/USART1/usart1_setup.c.obj
  .debug_aranges
-                0x000000e8       0x50 CMakeFiles/DZ2.elf.dir/src/main.c.obj
+                0x00000100       0x38 CMakeFiles/DZ2.elf.dir/src/main.c.obj
 
 .debug_rnglists
-                0x00000000       0xcc
+                0x00000000       0xcd
  .debug_rnglists
-                0x00000000       0x25 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
+                0x00000000       0x38 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
  .debug_rnglists
-                0x00000025       0x25 CMakeFiles/DZ2.elf.dir/src/DMA/dma.c.obj
+                0x00000038       0x25 CMakeFiles/DZ2.elf.dir/src/DMA/dma.c.obj
  .debug_rnglists
-                0x0000004a       0x13 CMakeFiles/DZ2.elf.dir/src/GPIO/setup_GPIO.c.obj
+                0x0000005d       0x13 CMakeFiles/DZ2.elf.dir/src/GPIO/setup_GPIO.c.obj
  .debug_rnglists
-                0x0000005d       0x19 CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
+                0x00000070       0x19 CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
  .debug_rnglists
-                0x00000076       0x1f CMakeFiles/DZ2.elf.dir/src/USART1/usart1_setup.c.obj
+                0x00000089       0x1f CMakeFiles/DZ2.elf.dir/src/USART1/usart1_setup.c.obj
  .debug_rnglists
-                0x00000095       0x37 CMakeFiles/DZ2.elf.dir/src/main.c.obj
+                0x000000a8       0x25 CMakeFiles/DZ2.elf.dir/src/main.c.obj
 
-.debug_line     0x00000000     0x101c
- .debug_line    0x00000000      0x360 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
- .debug_line    0x00000360      0x301 CMakeFiles/DZ2.elf.dir/src/DMA/dma.c.obj
- .debug_line    0x00000661      0x1b9 CMakeFiles/DZ2.elf.dir/src/GPIO/setup_GPIO.c.obj
- .debug_line    0x0000081a       0x7a CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
- .debug_line    0x00000894      0x205 CMakeFiles/DZ2.elf.dir/src/USART1/usart1_setup.c.obj
- .debug_line    0x00000a99      0x583 CMakeFiles/DZ2.elf.dir/src/main.c.obj
+.debug_line     0x00000000     0x10ce
+ .debug_line    0x00000000      0x536 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
+ .debug_line    0x00000536      0x301 CMakeFiles/DZ2.elf.dir/src/DMA/dma.c.obj
+ .debug_line    0x00000837      0x1b9 CMakeFiles/DZ2.elf.dir/src/GPIO/setup_GPIO.c.obj
+ .debug_line    0x000009f0       0x7a CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
+ .debug_line    0x00000a6a      0x205 CMakeFiles/DZ2.elf.dir/src/USART1/usart1_setup.c.obj
+ .debug_line    0x00000c6f      0x45f CMakeFiles/DZ2.elf.dir/src/main.c.obj
 
-.debug_str      0x00000000      0x98a
- .debug_str     0x00000000      0x54b CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
-                                0x595 (size before relaxing)
- .debug_str     0x0000054b       0xea CMakeFiles/DZ2.elf.dir/src/DMA/dma.c.obj
+.debug_str      0x00000000      0x999
+ .debug_str     0x00000000      0x620 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
+                                0x681 (size before relaxing)
+ .debug_str     0x00000620       0xe0 CMakeFiles/DZ2.elf.dir/src/DMA/dma.c.obj
                                 0x576 (size before relaxing)
- .debug_str     0x00000635       0x99 CMakeFiles/DZ2.elf.dir/src/GPIO/setup_GPIO.c.obj
+ .debug_str     0x00000700       0x67 CMakeFiles/DZ2.elf.dir/src/GPIO/setup_GPIO.c.obj
                                 0x297 (size before relaxing)
- .debug_str     0x000006ce       0x86 CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
+ .debug_str     0x00000767       0x86 CMakeFiles/DZ2.elf.dir/src/Startup/startup_stm32f051r8tx.s.obj
                                  0xde (size before relaxing)
- .debug_str     0x00000754       0x94 CMakeFiles/DZ2.elf.dir/src/USART1/usart1_setup.c.obj
+ .debug_str     0x000007ed       0x94 CMakeFiles/DZ2.elf.dir/src/USART1/usart1_setup.c.obj
                                 0x304 (size before relaxing)
- .debug_str     0x000007e8      0x1a2 CMakeFiles/DZ2.elf.dir/src/main.c.obj
-                                0x460 (size before relaxing)
+ .debug_str     0x00000881      0x118 CMakeFiles/DZ2.elf.dir/src/main.c.obj
+                                0x365 (size before relaxing)
 
 .comment        0x00000000       0x55
  .comment       0x00000000       0x55 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
@@ -858,11 +870,11 @@ LOAD c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb
  .comment       0x00000055       0x56 CMakeFiles/DZ2.elf.dir/src/main.c.obj
 
 .debug_frame    0x00000000      0x36c
- .debug_frame   0x00000000       0x58 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
- .debug_frame   0x00000058       0x58 CMakeFiles/DZ2.elf.dir/src/DMA/dma.c.obj
- .debug_frame   0x000000b0       0x20 CMakeFiles/DZ2.elf.dir/src/GPIO/setup_GPIO.c.obj
- .debug_frame   0x000000d0       0x48 CMakeFiles/DZ2.elf.dir/src/USART1/usart1_setup.c.obj
- .debug_frame   0x00000118       0x98 CMakeFiles/DZ2.elf.dir/src/main.c.obj
+ .debug_frame   0x00000000       0x88 CMakeFiles/DZ2.elf.dir/src/BUTTON/button.c.obj
+ .debug_frame   0x00000088       0x58 CMakeFiles/DZ2.elf.dir/src/DMA/dma.c.obj
+ .debug_frame   0x000000e0       0x20 CMakeFiles/DZ2.elf.dir/src/GPIO/setup_GPIO.c.obj
+ .debug_frame   0x00000100       0x48 CMakeFiles/DZ2.elf.dir/src/USART1/usart1_setup.c.obj
+ .debug_frame   0x00000148       0x68 CMakeFiles/DZ2.elf.dir/src/main.c.obj
  .debug_frame   0x000001b0       0x2c c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-init.o)
  .debug_frame   0x000001dc       0xb0 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-lock.o)
  .debug_frame   0x0000028c       0x54 c:/progra~2/armgnu~1/12977f~1.2mp/bin/../lib/gcc/arm-none-eabi/12.2.1/thumb/v6-m/nofp\libg.a(libc_a-__call_atexit.o)
