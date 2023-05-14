@@ -27,14 +27,7 @@ uint8_t sample_1024[] = {
 volatile cbuf tx_buffer;
 volatile cbuf rx_buffer;
 
-void DMA1_Channel2_3_IRQHandler(void) {
-    if ((DMA1->ISR & DMA_ISR_TCIF2) == DMA_ISR_TCIF2) {
-        GPIOA->ODR |= GPIO_ODR_8;
-    }
-    if ((DMA1->ISR & DMA_ISR_TCIF3) == DMA_ISR_TCIF3) {
-        DMA1->IFCR |= DMA_IFCR_CTCIF3;
-    }
-}
+void TEST_FLASH(void);
 
 void setup_PERIPHERALS(void);
 

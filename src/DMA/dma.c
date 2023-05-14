@@ -1,5 +1,14 @@
 #include "dma.h"
 
+void DMA1_Channel2_3_IRQHandler(void) {
+    if ((DMA1->ISR & DMA_ISR_TCIF2) == DMA_ISR_TCIF2) {
+        DMA1->IFCR |= DMA_IFCR_CTCIF2;
+    }
+    if ((DMA1->ISR & DMA_ISR_TCIF3) == DMA_ISR_TCIF3) {
+        DMA1->IFCR |= DMA_IFCR_CTCIF3;
+    }
+}
+
 static void setup_DMA_TX(const uint8_t *tx_buffer) {
     //memory increment mode
     DMA1_Channel2->CCR |= DMA_CCR_MINC;
