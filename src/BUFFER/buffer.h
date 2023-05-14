@@ -7,10 +7,10 @@
 
 /// Opaque circular tx_buffer structure
 typedef struct circular_buf_t {
-    uint8_t buffer[BUFFER_MAX_SIZE];
-    uint16_t head;
-    uint16_t tail;
-    uint8_t full;
+    volatile uint8_t buffer[BUFFER_MAX_SIZE];
+    volatile uint16_t head;
+    volatile uint16_t tail;
+    volatile uint8_t full;
 } cbuf;
 
 /// Checks if the tx_buffer is empty

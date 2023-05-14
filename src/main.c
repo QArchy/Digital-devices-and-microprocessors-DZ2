@@ -1,7 +1,11 @@
-#include "USART/usart_setup.h"
-#include "BUTTON/button_setup.h"
-#include "BUFFER/buffer.h"
+#include "BUTTON/button.h"
 #include "FLASH/flash.h"
+#include "BUFFER/buffer.h"
+#include "DMA/dma.h"
+#include "USART1/usart1_setup.h"
+#include "GPIO/setup_GPIO.h"
+
+#include "stm32f051x8.h"
 
 uint8_t sample_1024[] = {
         "QWBWYHSAZIHRMDOICEOGAZLKTFRPUXNXVJTCKLPBDUNESFJYQGILDWQWGCKKTFFF"
@@ -23,117 +27,89 @@ uint8_t sample_1024[] = {
 };
 
 typedef enum STATES {
-    NOT_PRESSED,
+    INIT,
     CATCH_CONTACT_BOUNCE,
-    TRANSMISSION_START,
     TRANSMISSION,
-    TRANSMISSION_END
 } STATES;
 
-volatile STATES button_state = NOT_PRESSED;
-cbuf tx_buffer;
-cbuf rx_buffer;
+volatile STATES state = INIT;
+volatile cbuf tx_buffer;
+volatile cbuf rx_buffer;
 
 void EXTI0_1_IRQHandler(void) {
     if (!(EXTI->PR & EXTI_PR_PR0)) { return; }
     EXTI->PR |= EXTI_PR_PR0;
 
-    if (button_state != NOT_PRESSED) { return; }
-    button_state = CATCH_CONTACT_BOUNCE;
+    if (state != TRANSMISSION) { return; }
+    state = CATCH_CONTACT_BOUNCE;
 
+    TIM2->CNT = 0;
     TIM2->CR1 |= TIM_CR1_CEN;
-    GPIOC->ODR ^= GPIO_ODR_8;
+    GPIOC->ODR |= GPIO_ODR_8;
 }
 
 void TIM2_IRQHandler(void) {
     if (!(TIM2->SR & TIM_SR_UIF)) { return; }
     TIM2->SR ^= TIM_SR_UIF;
 
-    if (button_state != CATCH_CONTACT_BOUNCE) { return; }
-    button_state = TRANSMISSION_START;
+    if (state == INIT) {
+        state = TRANSMISSION;
+        TIM2->CR1 &= ~TIM_CR1_CEN;
+        return;
+    }
+
+    if (state != CATCH_CONTACT_BOUNCE) { return; }
+    state = TRANSMISSION;
 
     TIM2->CR1 &= ~TIM_CR1_CEN;
+    GPIOC->ODR &= ~GPIO_ODR_8;
 }
 
-void USART1_IRQHandler(void) {
-    if (button_state != TRANSMISSION) { return; }
-
-    if (USART1->ISR & USART_ISR_RXNE) {
-        circular_buf_put(&rx_buffer, USART1->RDR);
+void DMA1_Channel2_3_IRQHandler(void) {
+    if ((DMA1->ISR & DMA_ISR_TCIF2) == DMA_ISR_TCIF2) {
+        DMA1->IFCR |= DMA_IFCR_CTCIF2;
+        //GPIOC->ODR ^= GPIO_ODR_8;
     }
-
-    if (USART1->ISR & USART_ISR_TXE) {
-        if (circular_buf_get(&tx_buffer, (uint8_t *) &USART1->TDR) == -1) {
-            button_state = TRANSMISSION_END;
-            NVIC_DisableIRQ(USART1_IRQn);
-        }
-        while (!(USART1->ISR & USART_ISR_TC));
+    if ((DMA1->ISR & DMA_ISR_TCIF3) == DMA_ISR_TCIF3) {
+        DMA1->IFCR |= DMA_IFCR_CTCIF3;
+        //GPIOC->ODR ^= GPIO_ODR_9;
     }
 }
 
-void setup_PERIPHERALS(void);
+void setup_PERIPHERALS();
 
-void transmission_start(void);
+void setup();
 
-void write_flash(void);
+void write_flash(uint8_t* buffer);
 
-void read_flash(void);
+void read_flash(uint8_t* buffer);
 
-void main() {
+void TEST_FLASH();
+
+int main(void) {
+    setup();
+    while (1);
+}
+
+void setup() {
     setup_PERIPHERALS();
-    write_flash();
-    read_flash();
-
-    while (1) {
-        if (button_state == TRANSMISSION_START) {
-            button_state = TRANSMISSION;
-            transmission_start();
-            continue;
-        }
-        if (button_state == TRANSMISSION_END) {
-            button_state = NOT_PRESSED;
-            GPIOC->ODR ^= GPIO_ODR_8;
-        }
-    }
 }
 
-void read_flash(void) {
-    setup_read_flash_data();
-    for (uint16_t i = 0; i < 512; i++) {
-        uint16_t tmp = 0;
-        read_flash_data(&tmp, i);
-        uint8_t char1 = tmp >> 8;
-        uint8_t char2 = tmp;
-        sample_1024[i] = char1;
-    }
-    disable_read_flash_data();
+void setup_PERIPHERALS() {
+    setup_GPIO();
+    setup_USART1();
+    setup_DMA(tx_buffer.buffer, rx_buffer.buffer);
+    setup_BUTTON();
 }
 
-void write_flash(void) {
-    setup_write_flash_data();
-    for (uint16_t i = 0; i < 512; i++) {
-        uint16_t tmp = 0;
-        write_flash_data(tmp | (uint16_t)sample_1024[i + 1] | ((uint16_t)sample_1024[i] << 8), i);
-    }
-    disable_read_flash_data();
-}
-
-void transmission_start(void) {
+void TEST_FLASH() {
+    // change FLASH_READ_PAGE_START = FLASH_WRITE_PAGE_START for test
     circular_buf_init_reset(&tx_buffer);
     circular_buf_init_reset(&rx_buffer);
-    for (uint16_t i = 0; i < BUFFER_MAX_SIZE; i++) {
+    for (int i = 0; i < BUFFER_MAX_SIZE; i++) {
         circular_buf_put(&tx_buffer, sample_1024[i]);
+        circular_buf_put(&rx_buffer, 0);
     }
-    NVIC_EnableIRQ(USART1_IRQn);
-    NVIC_SetPriority(USART1_IRQn, 1);
-}
-
-void setup_PERIPHERALS(void) {
-    RCC->CR |= RCC_CR_HSION;  // Enable HSI for flash
-    while ((RCC->CR & RCC_CR_HSIRDY) == 0); // Wait for HSI to stabilize
-
-    button_state = NOT_PRESSED;
-    setup_USART();
-    setup_BUTTON();
-    GPIOC->MODER |= GPIO_MODER_MODER9_0;
+    write_flash_data(tx_buffer.buffer, BUFFER_MAX_SIZE);
+    read_flash_data(rx_buffer.buffer, BUFFER_MAX_SIZE);
 }

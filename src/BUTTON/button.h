@@ -7,13 +7,9 @@
 #define PSC_5SEC 899
 #define ARR_5SEC 899
 
-void setup_GPIO_BUTTON_LED(void);
-
 void setup_EXTI0_BUTTON_INTERRUPT(void);
 
-void setup_TIM2(void);
-
-void setup_TIM2_INTERRUPT(void);
+void setup_TIM2_CONTACT_BOUNCE(void);
 
 void setup_BUTTON(void);
 

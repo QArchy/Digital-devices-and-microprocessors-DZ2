@@ -14,39 +14,43 @@ static void lock_flash(void) {
     FLASH->CR |= FLASH_CR_LOCK;
 }
 
-void setup_write_flash_data(void) {
+static uint16_t double_uint8_to_uint16(uint8_t char1, uint8_t char2) {
+    uint16_t uint16_data = 0;
+    uint16_data |= ((uint16_t) char1 << 8);
+    uint16_data |= ((uint16_t) char2);
+    return uint16_data;
+}
+
+void write_flash_data(const uint8_t* buffer, uint16_t buffer_size) {
     unlock_flash();
-}
 
-// Write data to flash memory
-void write_flash_data(uint16_t data, uint8_t transmission_number /* Start = 0 */) {
     FLASH->CR |= FLASH_CR_PG;
-    *(__IO uint16_t *) (FLASH_WRITE_PAGE_START + (FLASH_PAGE_DATA_STEP * transmission_number)) = data;
-    while ((FLASH->SR & FLASH_SR_BSY) != 0);
-    if ((FLASH->SR & FLASH_SR_EOP) == 0) {
-        FLASH->SR |= FLASH_SR_EOP;
-    } else {
-        GPIOC->ODR |= GPIO_ODR_9; // Error indicator
-    }
-    FLASH->CR &= ~FLASH_CR_PG;
-}
 
-void disable_write_flash_data() {
+    for (uint16_t i = 0; i < buffer_size / 2; i++) {
+        *(__IO uint16_t *) (FLASH_WRITE_PAGE_START + (FLASH_PAGE_DATA_STEP * i)) =
+                double_uint8_to_uint16(buffer[i * 2], buffer[i * 2 + 1]);
+    }
+
+    while ((FLASH->SR & FLASH_SR_BSY) != 0);
+    (FLASH->SR & FLASH_SR_EOP) == 0 ? (FLASH->SR |= FLASH_SR_EOP) : (GPIOC->ODR |= GPIO_ODR_9);
+
+    FLASH->CR &= ~FLASH_CR_PG;
+
     lock_flash();
 }
 
-void setup_read_flash_data(void) {
+void read_flash_data(uint8_t* buffer, uint16_t buffer_size) {
     unlock_flash();
     FLASH->ACR |= FLASH_ACR_PRFTBE;
-}
 
-// Function to read data from the circular buffer in flash
-void read_flash_data(uint16_t *data, uint8_t transmission_number /* Start = 0 */) {
-    *data = *(uint16_t *) (FLASH_READ_PAGE_START + (FLASH_PAGE_DATA_STEP * transmission_number));
-    while ((FLASH->SR & FLASH_SR_BSY) != 0) {}
-}
+    for (uint16_t i = 0; i < buffer_size / 2; i++) {
+        uint16_t data = *(__IO uint16_t *) (FLASH_READ_PAGE_START + (FLASH_PAGE_DATA_STEP * i));
+        buffer[i * 2] = (uint8_t) (data >> 8);
+        buffer[i * 2 + 1] = (uint8_t) data;
+    }
 
-void disable_read_flash_data(void) {
+    while ((FLASH->SR & FLASH_SR_BSY) != 0);
+
     lock_flash();
     FLASH->ACR &= ~FLASH_ACR_PRFTBE;
 }
