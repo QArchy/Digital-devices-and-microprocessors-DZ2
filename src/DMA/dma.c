@@ -14,7 +14,7 @@ static void setup_DMA_TX(const uint8_t *tx_buffer) {
     //address of data
     DMA1_Channel2->CMAR = (uint32_t) tx_buffer;
     //transmission complete interrupt
-    DMA1_Channel2->CCR |= DMA_CCR_TCIE | DMA_CCR_HTIE;
+    DMA1_Channel2->CCR |= DMA_CCR_TCIE;
 }
 
 static void setup_DMA_RX(const uint8_t *rx_buffer) {
@@ -31,7 +31,7 @@ static void setup_DMA_RX(const uint8_t *rx_buffer) {
     //address of data
     DMA1_Channel3->CMAR = (uint32_t) rx_buffer;
     //transmission complete interrupt
-    DMA1_Channel3->CCR |= DMA_CCR_TCIE | DMA_CCR_HTIE;
+    DMA1_Channel3->CCR |= DMA_CCR_TCIE;
 }
 
 static void setup_DMA_EN() {
