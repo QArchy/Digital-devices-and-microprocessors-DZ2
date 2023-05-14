@@ -80,12 +80,6 @@ void setup_PERIPHERALS();
 
 void setup();
 
-void write_flash(uint8_t* buffer);
-
-void read_flash(uint8_t* buffer);
-
-void TEST_FLASH();
-
 int main(void) {
     setup();
     while (1);
@@ -101,6 +95,10 @@ void setup_PERIPHERALS() {
     setup_DMA(tx_buffer.buffer, rx_buffer.buffer);
     setup_BUTTON();
 }
+
+ /**
+  * TEST FLASH
+  */
 
 void TEST_FLASH() {
     // change FLASH_READ_PAGE_START = FLASH_WRITE_PAGE_START for test
