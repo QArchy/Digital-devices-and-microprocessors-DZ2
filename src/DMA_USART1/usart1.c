@@ -1,4 +1,4 @@
-#include "usart1_setup.h"
+#include "usart1.h"
 
 void setup_USART1_GPIO(void) {
     GPIOA->MODER |= /* USART1_TX */ GPIO_MODER_MODER9_1 | /* USART1_RX */ GPIO_MODER_MODER10_1;
