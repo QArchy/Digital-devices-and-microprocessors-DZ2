@@ -17,7 +17,7 @@ int main(void) {
 }
 
 void setup_PERIPHERALS(void) {
-    setup_GPIO();
+    setup_GPIO_PINS();
     setup_USART1();
     setup_DMA(tx_buffer.buffer, rx_buffer.buffer);
     setup_BUTTON();

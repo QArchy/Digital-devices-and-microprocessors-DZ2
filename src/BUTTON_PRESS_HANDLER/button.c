@@ -123,7 +123,6 @@ static void setup_EXTI0_BUTTON_INTERRUPT(void) {
 }
 
 void setup_BUTTON(void) {
-    RCC->APB2ENR |= RCC_APB2ENR_SYSCFGEN;
     setup_EXTI0_BUTTON_INTERRUPT();
     setup_TIM2_CONTACT_BOUNCE();
     setup_TIM3_COMMAND_CHOOSE_AWAIT();

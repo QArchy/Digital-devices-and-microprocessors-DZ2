@@ -3,6 +3,9 @@
 
 #include "stm32f051x8.h"
 
-void setup_GPIO(void);
+#define PARALLEL_TRANSMIT_SERIAL_RECEIVE
+#define PARALLEL_RECEIVE_SERIAL_TRANSMIT
+
+void setup_GPIO_PINS(void);
 
 #endif // SETUP_GPIO_H
