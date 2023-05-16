@@ -18,7 +18,7 @@ typedef struct BUTTON_PROPERTIES {
 
 static BUTTON_PROPERTIES btn = {0, 0, 0, 0};
 
-COMMAND command = IDLE;
+COMMAND program_command = IDLE;
 
 #define HANDLE_INIT_BUTTON_TIMER(tim, tim_init) if (*tim_init) { *tim->CR1 &= ~TIM_CR1_CEN; *tim_init = 0; return; }
 #define HANDLE_TIMER_BUTTON_INTERRUPT(tim) if (!(*tim->SR & TIM_SR_UIF)) { return; } *tim->SR ^= TIM_SR_UIF;
@@ -58,6 +58,7 @@ void TIM2_IRQHandler(void) { // CONTACT_BOUNCE
     HANDLE_INIT_BUTTON_TIMER(&TIM2, &init_timers.tim2)
     btn.catch_contact_bounce = 0;
     GPIOC->ODR &= ~GPIO_ODR_8;
+    TIM2->CR1 &= ~TIM_CR1_CEN;
     if (!btn.released) {
         TIM3->CR1 |= TIM_CR1_CEN; // Wait for long press
     }
@@ -84,14 +85,21 @@ void TIM15_IRQHandler(void) { // COMMAND_CHOOSE
 
     switch (btn.press_counter) {
         case 0:
-            command = EXIT_COMMAND_CHOOSE;
+            program_command = IDLE;
+            break;
+        case 1:
+            program_command = START_TRANSMISSION;
+            break;
+        case 2:
+            program_command = SEND_COMMAND;
             break;
         default:
-            command = IDLE;
+            program_command = IDLE;
             break;
     }
 
     btn.press_counter = 0;
+    btn.long_press = 0;
     TIM15->CR1 &= ~TIM_CR1_CEN;
     TIM14->CR1 &= ~TIM_CR1_CEN;
 }

@@ -21,7 +21,9 @@
 
 typedef enum COMMAND {
     IDLE,
-    EXIT_COMMAND_CHOOSE,
+    START_TRANSMISSION,
+    SEND_COMMAND,
+    COMMAND_TRANSMISSION,
 } COMMAND;
 
 void setup_BUTTON(void);

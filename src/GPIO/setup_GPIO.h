@@ -3,20 +3,17 @@
 
 #include "stm32f051x8.h"
 
-/**
-    #ifdef PARALLEL_TRANSMIT_SERIAL_RECEIVE
-        This MC PARALLEL_TRANSMIT and SERIAL_RECEIVE while
-        other MC PARALLEL_RECEIVE and SERIAL_TRANSMIT
-    #endif
+#define PARALLEL_TRANSMIT
+//#define SERIAL_TRANSMIT
+//#define SERIAL_RECEIVE
+#define PARALLEL_RECEIVE
 
-    #ifdef PARALLEL_RECEIVE_SERIAL_TRANSMIT
-        This MC PARALLEL_RECEIVE and SERIAL_TRANSMIT while
-        other MC PARALLEL_TRANSMIT and SERIAL_RECEIVE
-    #endif
-*/
-
-#define PARALLEL_TRANSMIT_SERIAL_RECEIVE
-#define PARALLEL_RECEIVE_SERIAL_TRANSMIT
+typedef struct PROGRAM_CONFIG {
+    uint8_t parallel_transmit;
+    uint8_t parallel_receive;
+    uint8_t serial_transmit;
+    uint8_t serial_receive;
+} PROGRAM_CONFIG;
 
 void setup_GPIO_PINS(void);
 

@@ -183,16 +183,22 @@
 		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/BUTTON_PRESS_HANDLER/button.h">
 			<Option target="DZ2.elf"/>
 		</Unit>
-		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/DMA_USART1/dma.c">
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/DMA_USART1/DMA/dma.c">
 			<Option target="DZ2.elf"/>
 		</Unit>
-		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/DMA_USART1/dma.h">
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/DMA_USART1/DMA/dma.h">
 			<Option target="DZ2.elf"/>
 		</Unit>
-		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/DMA_USART1/usart1.c">
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/DMA_USART1/USART1/usart1.c">
 			<Option target="DZ2.elf"/>
 		</Unit>
-		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/DMA_USART1/usart1.h">
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/DMA_USART1/USART1/usart1.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/DMA_USART1/setup_USART1_DMA.c">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/DMA_USART1/setup_USART1_DMA.h">
 			<Option target="DZ2.elf"/>
 		</Unit>
 		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/FLASH/flash.c">
