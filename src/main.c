@@ -15,7 +15,7 @@ uint8_t sample_1024[] = {
         "QWBWYHSAZIHRMDOICEOGAZLKTFRPUXNXVJTCKLPBDUNESFJYQGILDWQWGCKKTFFF"
         "QWBWYHSAZIHRMDOICEOGAZLKTFRPUXNXVJTCKLPBDUNESFJYQGILDWQWGCKKTFFF"
         "QWBWYHSAZIHRMDOICEOGAZLKTFRPUXNXVJTCKLPBDUNESFJYQGILDWQWGCKKTFFF"
-        "QWBWYHSAZIHRMDOICEOGAZLKCOMMANDXVJTCKLPBDUNESFJYQGILDWQWGCKKTFFF"
+        "QWBWYHSAZIHRMDOICEOGAZLKTFRPUXNXVJTCKLPBDUNESFJYQGILDWQWGCKKTFFF"
         "QWBWYHSAZIHRMDOICEOGAZLKTFRPUXNXVJTCKLPBDUNESFJYQGILDWQWGCKKTFFF"
         "QWBWYHSAZIHRMDOICEOGAZLKTFRPUXNXVJTCKLPBDUNESFJYQGILDWQWGCKKTFFF"
         "QWBWYHSAZIHRMDOICEOGAZLKTFRPUXNXVJTCKLPBDUNESFJYQGILDWQWGCKKTFFF"
@@ -29,9 +29,9 @@ extern COMMAND program_command;
 cbuf parallel_receive_buffer;
 extern uint8_t read_parallel_data; // becomes 1 in interrupt
 
-uint8_t data_command[7] = {'C', 'O', 'M', 'M', 'A', 'N', 'D'}; // turn on LED
-uint16_t data_command_hash = 'C' + 'O' + 'M' + 'M' + 'A' + 'N' + 'D'; // turn on LED
-uint8_t data_command_length = 7; // 7 chars
+uint8_t data_command[10] = {'C', 'O', 'M', 'M', 'A', 'N', 'D', 'L', 'O', 'L'}; // turn on LED
+uint16_t data_command_hash = 'C' + 'O' + 'M' + 'M' + 'A' + 'N' + 'D' + 'L' + 'O' + 'L'; // turn on LED
+uint8_t data_command_length = 10; // 7 chars
 
 cbuf parallel_transmit_buffer;
 extern uint8_t send_parallel_data; // becomes 1 in interrupt
@@ -70,13 +70,16 @@ void process_parallel_send_data(void) {
     static uint8_t command_send_bit = 0;
     if (send_parallel_data) {
 
+        if (program_command == COMMAND_TRANSMISSION && command_send_bit == 10) {
+            program_command = IDLE;
+            command_send_bit = 0;
+            send_parallel_data = 0;
+            return;
+        }
+
         uint8_t tmp = 0;
         if (program_command == COMMAND_TRANSMISSION) {
-            tmp = data_command[command_send_bit];
-            if (++command_send_bit == 7) {
-                program_command = IDLE;
-                command_send_bit = 0;
-            }
+            tmp = data_command[command_send_bit++];
         } else {
             if (circular_buf_get(&parallel_transmit_buffer, &tmp) == -1) {
                 send_parallel_data = 0;
@@ -90,7 +93,7 @@ void process_parallel_send_data(void) {
         GPIOA->ODR |= GPIO_ODR_11; // enable signal
 
         GPIOA->ODR &= ~0b111111110;
-        GPIOA->ODR |= (tmp << 1);
+        GPIOA->ODR |= (((uint32_t) tmp) << 1);
 
         send_parallel_data = 0;
     }
