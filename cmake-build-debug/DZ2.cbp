@@ -11,10 +11,10 @@
 				<Option working_dir="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="DZ2.elf">
@@ -37,10 +37,10 @@
 					<Add directory="c:\program files (x86)\arm gnu toolchain arm-none-eabi\12.2 mpacbti-rel1\bin\../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 DZ2.elf"/>
-					<CompileFile command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 DZ2.elf"/>
+					<CompileFile command="D:/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="DZ2.elf/fast">
@@ -63,30 +63,30 @@
 					<Add directory="c:\program files (x86)\arm gnu toolchain arm-none-eabi\12.2 mpacbti-rel1\bin\../lib/gcc/arm-none-eabi/12.2.1/../../../../arm-none-eabi/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 DZ2.elf/fast"/>
-					<CompileFile command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 DZ2.elf/fast"/>
+					<CompileFile command="D:/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
 				<Option working_dir="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
 				<Option working_dir="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="D:/Toolbox/apps/CLion/ch-0/231.8770.66/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="D:/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Toolbox/apps/CLion/ch-0/231.9011.31/bin/mingw/bin/mingw32-make.exe -f &quot;C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
@@ -175,6 +175,9 @@
 			<Option target="DZ2.elf"/>
 		</Unit>
 		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/BUFFER/buffer.h">
+			<Option target="DZ2.elf"/>
+		</Unit>
+		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/BUTTON_PRESS_HANDLER/button (2).h">
 			<Option target="DZ2.elf"/>
 		</Unit>
 		<Unit filename="C:/Users/xyarc/YandexDisk/Byz/Digital devices and microprocessors/DZ2/src/BUTTON_PRESS_HANDLER/button.c">

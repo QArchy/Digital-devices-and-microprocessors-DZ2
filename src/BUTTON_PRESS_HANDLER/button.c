@@ -18,7 +18,7 @@ typedef struct BUTTON_PROPERTIES {
 
 static BUTTON_PROPERTIES btn = {0, 0, 0, 0};
 
-COMMAND program_command = IDLE;
+volatile COMMAND program_command = IDLE;
 
 #define HANDLE_INIT_BUTTON_TIMER(tim, tim_init) if (*tim_init) { *tim->CR1 &= ~TIM_CR1_CEN; *tim_init = 0; return; }
 #define HANDLE_TIMER_BUTTON_INTERRUPT(tim) if (!(*tim->SR & TIM_SR_UIF)) { return; } *tim->SR ^= TIM_SR_UIF;

@@ -3,7 +3,7 @@
 
 #include "stm32f051x8.h"
 
-#define PARALLEL_TRANSMIT
+//#define PARALLEL_TRANSMIT
 //#define SERIAL_TRANSMIT
 //#define SERIAL_RECEIVE
 #define PARALLEL_RECEIVE
