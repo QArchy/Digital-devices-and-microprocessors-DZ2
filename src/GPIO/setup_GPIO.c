@@ -9,6 +9,8 @@ PROGRAM_CONFIG program_config = {
 
 uint8_t read_parallel_data = 0;
 uint8_t send_parallel_data = 0;
+uint8_t read_serial_data = 0;
+uint8_t send_serial_data = 0;
 
 void EXTI4_15_IRQHandler(void) {
     if (program_config.parallel_receive && EXTI->PR & EXTI_PR_PR9) { // enable received
