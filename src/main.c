@@ -67,35 +67,38 @@ int main(void) {
     }
 #pragma clang diagnostic pop
 }
-
 void process_serial_send_data(void) {
     static uint8_t data_bit = 7;
     static uint8_t data = 0;
     if (!send_serial_data) { return; } // set in timer interrupt
+    send_serial_data = 0;
     if (data_bit == 7) {
-        if (program_command == SEND_COMMAND) {
+        if (program_command == COMMAND_TRANSMISSION) {
             if (data == data_command) {
-                GPIOB->BSRR |= GPIO_BSRR_BR_13; // disable d_send
+                GPIOC->BSRR |= GPIO_BSRR_BR_2; // disable d_send
                 TIM16->CR1 &= ~TIM_CR1_CEN; // disable timer
-                GPIOB->BSRR |= GPIO_BSRR_BR_14; // disable timer impulse
+                GPIOC->BSRR |= GPIO_BSRR_BR_3; // disable timer impulse
+                program_command = IDLE;
                 return;
             }
             data = data_command;
-            GPIOB->BSRR |= GPIO_BSRR_BS_13; // enable d_send
+            GPIOC->BSRR |= GPIO_BSRR_BS_2; // enable d_send
         } else {
             if (data == 255) {
-                GPIOB->BSRR |= GPIO_BSRR_BR_13; // disable d_send
+                GPIOC->BSRR |= GPIO_BSRR_BR_2; // disable d_send
                 TIM16->CR1 &= ~TIM_CR1_CEN; // disable timer
-                GPIOB->BSRR |= GPIO_BSRR_BR_14; // disable timer impulse
+                GPIOC->BSRR |= GPIO_BSRR_BR_3; // disable timer impulse
+                GPIOC->ODR |= GPIO_ODR_8;
                 return;
             }
+            GPIOC->ODR &= ~GPIO_ODR_8;
             data = circular_buf_get(&transmit_buffer, &data);
-            if (transmit_buffer.full) GPIOB->BSRR |= GPIO_BSRR_BS_13; // enable d_send
+            if (transmit_buffer.full) GPIOC->BSRR |= GPIO_BSRR_BS_2; // enable d_send
         }
     }
-    (data & ((uint8_t) (1 << data_bit))) ? (GPIOB->BSRR |= GPIO_BSRR_BS_12) : (GPIOB->BSRR |= GPIO_BSRR_BR_12);
-    send_serial_data = 0;
+    (data & ((uint8_t) (1 << data_bit))) ? (GPIOC->BSRR |= GPIO_BSRR_BS_1) : (GPIOC->BSRR |= GPIO_BSRR_BR_1);
     if (data_bit-- == 0) data_bit = 7;
+    GPIOC->BSRR |= GPIO_BSRR_BR_3; // reset timer pulse
 }
 
 void process_parallel_send_data(void) {
@@ -134,14 +137,23 @@ void process_parallel_send_data(void) {
 }
 
 void process_serial_read_data(void) {
+    static uint32_t byte_count = 0;
     static uint8_t data_bit = 7;
     static uint8_t data = 0;
     if (!read_serial_data) { return; } // set in timer get interrupt
-    data |= ( (uint8_t) ((GPIOC->IDR & GPIO_IDR_12) ? 1 : 0) ) << data_bit;
+    data |= ( (uint8_t) ((GPIOC->IDR & GPIO_IDR_1) ? 1 : 0) ) << data_bit;
     read_serial_data = 0;
     if (data_bit-- == 0) {
         data_bit = 7;
-        circular_buf_put(&receive_buffer, data);
+        if (data == data_command) {
+            GPIOC->ODR ^= GPIO_ODR_9;
+        } else {
+            circular_buf_put(&receive_buffer, data);
+            if (++byte_count == 1024) {
+                byte_count = 0;
+                GPIOC->ODR ^= GPIO_ODR_8;
+            }
+        }
         data = 0;
     }
 }

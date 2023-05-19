@@ -47,8 +47,11 @@ void EXTI4_15_IRQHandler(void) {
         EXTI->PR |= EXTI_PR_PR11;
         send_parallel_data = 1;
     }
-    if (program_config.serial_receive && EXTI->PR & EXTI_PR_PR14) { // ready received
-        EXTI->PR |= EXTI_PR_PR14;
+}
+
+void EXTI2_3_IRQHandler(void) {
+    if (program_config.serial_receive && EXTI->PR & EXTI_PR_PR3) { // serial clk received
+        EXTI->PR |= EXTI_PR_PR3;
         read_serial_data = 1;
     }
 }
@@ -57,6 +60,7 @@ void TIM16_IRQHandler(void) {
     static uint8_t init = 1;
     HANDLE_TIMER_BUTTON_INTERRUPT(&TIM16)
     HANDLE_INIT_BUTTON_TIMER(&TIM16, &init)
+    GPIOC->BSRR |= GPIO_BSRR_BS_3; // set timer pulse
     send_serial_data = 1;
 }
 
@@ -66,9 +70,9 @@ static void setup_SYSCFG_GPIO_RECEIVE(void) {
     /**
      * Have to receive serial data, serial d_send signal, and serial clk
      */
-    SYSCFG->EXTICR[3] |= /* PB(12) for serial data receive */ SYSCFG_EXTICR4_EXTI12_PB;
-    SYSCFG->EXTICR[3] |= /* PB(13) for serial d_send receive */ SYSCFG_EXTICR4_EXTI13_PB;
-    SYSCFG->EXTICR[3] |= /* PB(14) for serial clock receive */ SYSCFG_EXTICR4_EXTI14_PB;
+    SYSCFG->EXTICR[0] |= /* PC(1) for serial data receive */ SYSCFG_EXTICR1_EXTI1_PC;
+    SYSCFG->EXTICR[0] |= /* PC(2) for serial d_send receive */ SYSCFG_EXTICR1_EXTI2_PC;
+    SYSCFG->EXTICR[0] |= /* PC(3) for serial clock receive */ SYSCFG_EXTICR1_EXTI3_PC;
 #endif
 #ifdef PARALLEL_RECEIVE // What signals this MC receives while PARALLEL_RECEIVE
     /**
@@ -106,9 +110,9 @@ static void setup_GPIO_TRANSMIT(void) {
     /**
      * Have to transmit serial data, serial d_send signal and serial clk
      */
-    GPIOB->MODER |= GPIO_MODER_MODER12_0; // PB(12) configured for serial data transmit
-    GPIOB->MODER |= GPIO_MODER_MODER13_0; // PB(13) configured for serial d_send transmit
-    GPIOB->MODER |= GPIO_MODER_MODER14_0; // PB(14) configured for serial clk transmit
+    GPIOC->MODER |= GPIO_MODER_MODER1_0; // PC(1) configured for serial data transmit
+    GPIOC->MODER |= GPIO_MODER_MODER2_0; // PC(2) configured for serial d_send transmit
+    GPIOC->MODER |= GPIO_MODER_MODER3_0; // PC(3) configured for serial clk transmit
 #endif
 #ifdef PARALLEL_RECEIVE // What signals this MC transmits while PARALLEL_RECEIVE
     /**
@@ -127,9 +131,9 @@ static void setup_GPIO_LED(void) {
 /**
  * Connection map
  * parallel data receive PA(1..8) -> parallel data transmit PA(1..8)
- * serial data receive PB(12) -> serial data transmit PB(12)
- * serial d_send receive PB(13) -> serial d_send transmit PB(13)
- * serial clock receive PB(14) -> serial clk transmit PB(14)
+ * serial data receive PC(1) -> serial data transmit PC(1)
+ * serial d_send receive PC(2) -> serial d_send transmit PC(2)
+ * serial clock receive PC(3) -> serial clk transmit PC(3)
  * parallel enable signal receive PС(10) -> parallel enable signal transmit PС(10)
  * parallel ready receive PС(11) -> parallel ready transmit PС(11)
  */
@@ -141,29 +145,29 @@ void setup_GPIO_PINS(void) {
 #ifdef PARALLEL_RECEIVE
     program_config.parallel_receive = 1;
     // PC(10) for parallel enable signal receive
-    EXTI->IMR |= EXTI_IMR_IM9;
-    //EXTI->RTSR |= EXTI_RTSR_TR9;
-    EXTI->FTSR |= EXTI_FTSR_TR9;
+    EXTI->IMR |= EXTI_IMR_IM10;
+    //EXTI->RTSR |= EXTI_RTSR_TR10;
+    EXTI->FTSR |= EXTI_FTSR_TR10;
     // Enable interrupt
     NVIC_EnableIRQ(EXTI4_15_IRQn);
     NVIC_SetPriority(EXTI4_15_IRQn, 0);
 #endif
 #ifdef SERIAL_RECEIVE
     program_config.serial_receive = 1;
-    // PB(14) for serial clk receive
-    EXTI->IMR |= EXTI_IMR_IM14;
-    //EXTI->RTSR |= EXTI_RTSR_TR10;
-    EXTI->FTSR |= EXTI_FTSR_TR14;
+    // PC(3) for serial clk receive
+    EXTI->IMR |= EXTI_IMR_IM3;
+    //EXTI->RTSR |= EXTI_RTSR_TR3;
+    EXTI->FTSR |= EXTI_FTSR_TR3;
     // Enable interrupt
-    NVIC_EnableIRQ(EXTI4_15_IRQn);
-    NVIC_SetPriority(EXTI4_15_IRQn, 0);
+    NVIC_EnableIRQ(EXTI2_3_IRQn);
+    NVIC_SetPriority(EXTI2_3_IRQn, 0);
 #endif
 #ifdef PARALLEL_TRANSMIT
     program_config.parallel_transmit = 1;
     // PC(11) for parallel ready receive
-    EXTI->IMR |= EXTI_IMR_IM10;
-    //EXTI->RTSR |= EXTI_RTSR_TR10;
-    EXTI->FTSR |= EXTI_FTSR_TR10;
+    EXTI->IMR |= EXTI_IMR_IM11;
+    //EXTI->RTSR |= EXTI_RTSR_TR11;
+    EXTI->FTSR |= EXTI_FTSR_TR11;
     // Enable interrupt
     NVIC_EnableIRQ(EXTI4_15_IRQn);
     NVIC_SetPriority(EXTI4_15_IRQn, 0);
