@@ -47,9 +47,6 @@ void process_serial_send_data(void);
 
 int main(void) {
     circular_buf_init_reset(&receive_buffer);
-    circular_buf_init_reset(&transmit_buffer);
-    for (uint16_t i = 0; i < 1024; i++) circular_buf_put(&transmit_buffer, sample_1024[i]);
-
     setup_PERIPHERALS();
 
 #pragma clang diagnostic push
@@ -75,18 +72,26 @@ int main(void) {
 void process_serial_send_data(void) {
     static uint8_t data_bit = 7;
     static uint8_t data = 0;
-    if (!send_serial_data) { return; }
-    if (data_bit == 7) data = circular_buf_get(&transmit_buffer, &data);
-    (data & ((uint8_t) (1 << data_bit))) ? (GPIOC->ODR |= GPIO_ODR_1) : (GPIOC->ODR &= ~GPIO_ODR_1);
-    if (data_bit-- == 0) {
-        data_bit = 7;
-        send_serial_data = 0;
-        // disable d_send
+    if (!send_serial_data) { return; } // set in timer interrupt
+    if (data_bit == 7) {
+        if (transmit_buffer.full) {
+            GPIOB->BSRR |= GPIO_BSRR_BS_13; // enable d_send
+        }
+        data = circular_buf_get(&transmit_buffer, &data);
+        if (data == 255) {
+            GPIOB->BSRR |= GPIO_BSRR_BR_13; // disable d_send
+            // disable timer
+            GPIOB->BSRR |= GPIO_BSRR_BR_14; // disable d_send
+            return;
+        }
     }
+    (data & ((uint8_t) (1 << data_bit))) ? (GPIOB->BSRR |= GPIO_BSRR_BS_12) : (GPIOB->BSRR |= GPIO_BSRR_BR_12);
+    send_serial_data = 0;
+    if (data_bit-- == 0) data_bit = 7;
 }
 
 void process_parallel_send_data(void) {
-    static volatile uint8_t command_send_flag = 0;
+    static uint8_t command_send_flag = 0;
     if (!send_parallel_data) { return; }
 
     if (program_command == COMMAND_TRANSMISSION && command_send_flag == 1) {
@@ -96,7 +101,7 @@ void process_parallel_send_data(void) {
         return;
     }
 
-    volatile uint8_t tmp = 0;
+    uint8_t tmp = 0;
     if (program_command == COMMAND_TRANSMISSION) {
         tmp = data_command;
         command_send_flag = 1;
@@ -112,7 +117,10 @@ void process_parallel_send_data(void) {
 
     GPIOA->ODR &= ~0b111111110;
     GPIOA->ODR |= (((uint32_t) tmp) << 1);
-    GPIOA->BSRR |= GPIO_BSRR_BS_9;
+    for (uint8_t i = 0; i < 8; i++);
+    GPIOC->BSRR |= GPIO_BSRR_BS_10;
+    for (uint8_t i = 0; i < 64; i++);
+    GPIOC->BSRR |= GPIO_BSRR_BR_10;
 
     send_parallel_data = 0;
 }
@@ -120,17 +128,18 @@ void process_parallel_send_data(void) {
 void process_serial_read_data(void) {
     static uint8_t data_bit = 7;
     static uint8_t data = 0;
-    if (!read_serial_data) { return; }
-    data |= ( (uint8_t) ((GPIOC->IDR & GPIO_IDR_1) ? 1 : 0) ) << data_bit;
+    if (!read_serial_data) { return; } // set in timer get interrupt
+    data |= ( (uint8_t) ((GPIOC->IDR & GPIO_IDR_12) ? 1 : 0) ) << data_bit;
+    read_serial_data = 0;
     if (data_bit-- == 0) {
         data_bit = 7;
-        read_serial_data = 0;
         circular_buf_put(&receive_buffer, data);
+        data = 0;
     }
 }
 
 void process_parallel_read_data(void) {
-    static volatile uint32_t byte_count = 0;
+    static uint32_t byte_count = 0;
     if (!read_parallel_data) { return; }
 
     uint8_t data = (uint8_t) (GPIOA->IDR >> 1);
@@ -146,7 +155,9 @@ void process_parallel_read_data(void) {
     }
 
     read_parallel_data = 0;
-    GPIOA->BSRR |= GPIO_BSRR_BS_10;
+    GPIOC->BSRR |= GPIO_BSRR_BS_11;
+    for (uint8_t i = 0; i < 64; i++);
+    GPIOC->BSRR |= GPIO_BSRR_BR_11;
 }
 
 void setup_PERIPHERALS(void) {
