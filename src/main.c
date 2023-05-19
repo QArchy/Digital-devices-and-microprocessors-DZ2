@@ -55,12 +55,11 @@ int main(void) {
         if (program_command == START_TRANSMISSION) {
             circular_buf_init_reset(&transmit_buffer);
             for (uint16_t i = 0; i < 1024; i++) circular_buf_put(&transmit_buffer, sample_1024[i]);
-            program_config.parallel_transmit ? (send_parallel_data = 1) : (send_serial_data = 1);
+            program_config.parallel_transmit ? (send_parallel_data = 1) : (TIM16->CR1 |= TIM_CR1_CEN);
             program_command = IDLE;
-            continue;
         }
         if (program_command == SEND_COMMAND) {
-            program_config.parallel_transmit ? (send_parallel_data = 1) : (send_serial_data = 1);
+            program_config.parallel_transmit ? (send_parallel_data = 1) : (TIM16->CR1 |= TIM_CR1_CEN);
             program_command = COMMAND_TRANSMISSION;
         }
         program_config.parallel_receive ? process_parallel_read_data() : process_serial_read_data();
@@ -74,15 +73,24 @@ void process_serial_send_data(void) {
     static uint8_t data = 0;
     if (!send_serial_data) { return; } // set in timer interrupt
     if (data_bit == 7) {
-        if (transmit_buffer.full) {
+        if (program_command == SEND_COMMAND) {
+            if (data == data_command) {
+                GPIOB->BSRR |= GPIO_BSRR_BR_13; // disable d_send
+                TIM16->CR1 &= ~TIM_CR1_CEN; // disable timer
+                GPIOB->BSRR |= GPIO_BSRR_BR_14; // disable timer impulse
+                return;
+            }
+            data = data_command;
             GPIOB->BSRR |= GPIO_BSRR_BS_13; // enable d_send
-        }
-        data = circular_buf_get(&transmit_buffer, &data);
-        if (data == 255) {
-            GPIOB->BSRR |= GPIO_BSRR_BR_13; // disable d_send
-            // disable timer
-            GPIOB->BSRR |= GPIO_BSRR_BR_14; // disable d_send
-            return;
+        } else {
+            if (data == 255) {
+                GPIOB->BSRR |= GPIO_BSRR_BR_13; // disable d_send
+                TIM16->CR1 &= ~TIM_CR1_CEN; // disable timer
+                GPIOB->BSRR |= GPIO_BSRR_BR_14; // disable timer impulse
+                return;
+            }
+            data = circular_buf_get(&transmit_buffer, &data);
+            if (transmit_buffer.full) GPIOB->BSRR |= GPIO_BSRR_BS_13; // enable d_send
         }
     }
     (data & ((uint8_t) (1 << data_bit))) ? (GPIOB->BSRR |= GPIO_BSRR_BS_12) : (GPIOB->BSRR |= GPIO_BSRR_BR_12);

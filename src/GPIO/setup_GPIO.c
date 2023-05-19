@@ -12,6 +12,32 @@ uint8_t send_parallel_data = 0;
 uint8_t read_serial_data = 0;
 uint8_t send_serial_data = 0;
 
+typedef struct FREQUENCY {
+    uint16_t psc;
+    uint16_t arr;
+} FREQUENCY;
+
+typedef enum FREQUENCY_KHZ {
+    FREQUENCY_01 = 0,
+    FREQUENCY_05 = 1,
+    FREQUENCY_1 = 2,
+    FREQUENCY_2 = 3,
+    FREQUENCY_3 = 4,
+    FREQUENCY_5 = 5,
+    FREQUENCY_7 = 6,
+    FREQUENCY_10 = 7
+} FREQUENCY_INDEX;
+
+FREQUENCY frequency[8] = {
+        /* 0.1 KHz */{.psc = 809, .arr = 99},/* 0.5 KHz */{.psc = 159, .arr = 99}, \
+        /* 1 KHz */{.psc = 79, .arr = 99},/* 2 KHz */{.psc = 39, .arr = 99}, \
+        /* 3 KHz */{.psc = 23, .arr = 99},/* 5 KHz */{.psc = 15, .arr = 99}, \
+        /* 7 KHz */{.psc = 10, .arr = 99},/* 10 KHz */{.psc = 6, .arr = 99}
+};
+
+#define HANDLE_INIT_BUTTON_TIMER(tim, tim_init) if (*tim_init) { *tim->CR1 &= ~TIM_CR1_CEN; *tim_init = 0; return; }
+#define HANDLE_TIMER_BUTTON_INTERRUPT(tim) if (!(*tim->SR & TIM_SR_UIF)) { return; } *tim->SR ^= TIM_SR_UIF;
+
 void EXTI4_15_IRQHandler(void) {
     if (program_config.parallel_receive && EXTI->PR & EXTI_PR_PR10) { // enable received
         EXTI->PR |= EXTI_PR_PR10;
@@ -25,6 +51,13 @@ void EXTI4_15_IRQHandler(void) {
         EXTI->PR |= EXTI_PR_PR14;
         read_serial_data = 1;
     }
+}
+
+void TIM16_IRQHandler(void) {
+    static uint8_t init = 1;
+    HANDLE_TIMER_BUTTON_INTERRUPT(&TIM16)
+    HANDLE_INIT_BUTTON_TIMER(&TIM16, &init)
+    send_serial_data = 1;
 }
 
 static void setup_SYSCFG_GPIO_RECEIVE(void) {
@@ -137,6 +170,12 @@ void setup_GPIO_PINS(void) {
 #endif
 #ifdef SERIAL_TRANSMIT
     program_config.serial_transmit = 1;
+    RCC->APB2ENR |= RCC_APB2ENR_TIM16EN;
+    TIM16->PSC = frequency[FREQUENCY_01].psc;
+    TIM16->ARR = frequency[FREQUENCY_01].arr;
+    TIM16->DIER |= TIM_DIER_UIE;
+    TIM16->CR1 |= TIM_CR1_CEN;
+    NVIC_SetPriority(TIM16_IRQn, 0);
+    NVIC_EnableIRQ(TIM16_IRQn);
 #endif
-
 }
