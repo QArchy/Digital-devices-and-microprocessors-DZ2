@@ -4,7 +4,7 @@
 #include <stm32f051x8.h>
 
 #define FLASH_READ_PAGE_START 0x0800FC00UL // first from bottom
-#define FLASH_WRITE_PAGE_START 0x0800F800UL // second from bottom
+#define FLASH_WRITE_PAGE_START 0x0800FC00UL // second from bottom // 0x0800F800UL
 #define FLASH_PAGE_DATA_STEP 0x2UL
 #define FLASH_PAGE_SIZE 1024
 

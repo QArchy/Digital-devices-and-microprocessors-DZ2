@@ -1,8 +1,9 @@
 #include "BUTTON_PRESS_HANDLER/button.h"
-// #include "FLASH/flash.h"
+#include "FLASH/flash.h"
 #include "BUFFER/buffer.h"
-// #include "DMA_USART1/setup_USART1_DMA.h"
+#include "DMA_USART1/setup_USART1_DMA.h"
 #include "GPIO/setup_GPIO.h"
+#include "TEST/test_flash.h"
 
 const uint8_t data_command = 200; // turn on LED
 
@@ -52,6 +53,10 @@ int main(void) {
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "EndlessLoop"
     while (1) {
+        if (program_command == USART_TO_FLASH) {
+            test_flash(&transmit_buffer, &receive_buffer, sample_1024);
+            program_command = IDLE;
+        }
         if (program_command == START_TRANSMISSION) {
             circular_buf_init_reset(&transmit_buffer);
             for (uint16_t i = 0; i < 1024; i++) circular_buf_put(&transmit_buffer, sample_1024[i]);

@@ -5,6 +5,6 @@
 #include "FLASH/flash.h"
 #include "BUFFER/buffer.h"
 
-void test_flash(void);
+void test_flash(cbuf* test_tx_buffer, cbuf* test_rx_buffer, uint8_t* sample);
 
 #endif

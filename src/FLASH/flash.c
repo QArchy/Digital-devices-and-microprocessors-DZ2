@@ -29,9 +29,9 @@ void write_flash_data_buffer(const uint8_t* buffer, uint16_t buffer_size) {
     for (uint16_t i = 0; i < buffer_size / 2; i++) {
         *(__IO uint16_t *) (FLASH_WRITE_PAGE_START + (FLASH_PAGE_DATA_STEP * i)) =
                 double_uint8_to_uint16(buffer[i * 2], buffer[i * 2 + 1]);
+        while ((FLASH->SR & FLASH_SR_BSY) != 0);
     }
 
-    while ((FLASH->SR & FLASH_SR_BSY) != 0);
     (FLASH->SR & FLASH_SR_EOP) == 0 ? (FLASH->SR |= FLASH_SR_EOP) : (GPIOC->ODR |= GPIO_ODR_9);
 
     FLASH->CR &= ~FLASH_CR_PG;
@@ -48,11 +48,11 @@ void write_flash_data(const uint8_t* src) {
     FLASH->CR |= FLASH_CR_PG;
 
     if (even_entry) {
-        *(__IO uint16_t *) (FLASH_READ_PAGE_START + (FLASH_PAGE_DATA_STEP * call_number)) |= (uint16_t) (*src);
+        *(__IO uint16_t *) (FLASH_WRITE_PAGE_START + (FLASH_PAGE_DATA_STEP * call_number)) |= (uint16_t) (*src);
         if (++call_number == FLASH_PAGE_SIZE) { call_number = 0; }
     } else {
-        *(__IO uint16_t *) (FLASH_READ_PAGE_START + (FLASH_PAGE_DATA_STEP * call_number)) = (uint16_t) 0;
-        *(__IO uint16_t *) (FLASH_READ_PAGE_START + (FLASH_PAGE_DATA_STEP * call_number)) |= (uint16_t) (*src << 8);
+        *(__IO uint16_t *) (FLASH_WRITE_PAGE_START + (FLASH_PAGE_DATA_STEP * call_number)) = (uint16_t) 0;
+        *(__IO uint16_t *) (FLASH_WRITE_PAGE_START + (FLASH_PAGE_DATA_STEP * call_number)) |= (uint16_t) (*src << 8);
     }
 
     while ((FLASH->SR & FLASH_SR_BSY) != 0);
@@ -70,9 +70,8 @@ void read_flash_data_buffer(uint8_t* buffer, uint16_t buffer_size) {
         uint16_t data = *(__IO uint16_t *) (FLASH_READ_PAGE_START + (FLASH_PAGE_DATA_STEP * i));
         buffer[i * 2] = (uint8_t) (data >> 8);
         buffer[i * 2 + 1] = (uint8_t) data;
+        while ((FLASH->SR & FLASH_SR_BSY) != 0);
     }
-
-    while ((FLASH->SR & FLASH_SR_BSY) != 0);
 
     lock_flash();
     FLASH->ACR &= ~FLASH_ACR_PRFTBE;
