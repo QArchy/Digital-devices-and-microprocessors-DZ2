@@ -67,6 +67,7 @@ int main(void) {
     }
 #pragma clang diagnostic pop
 }
+
 void process_serial_send_data(void) {
     static uint8_t data_bit = 7;
     static uint8_t data = 0;
@@ -74,31 +75,33 @@ void process_serial_send_data(void) {
     send_serial_data = 0;
     if (data_bit == 7) {
         if (program_command == COMMAND_TRANSMISSION) {
-            if (data == data_command) {
-                GPIOC->BSRR |= GPIO_BSRR_BR_2; // disable d_send
-                TIM16->CR1 &= ~TIM_CR1_CEN; // disable timer
-                GPIOC->BSRR |= GPIO_BSRR_BR_3; // disable timer impulse
-                program_command = IDLE;
-                return;
-            }
             data = data_command;
-            GPIOC->BSRR |= GPIO_BSRR_BS_2; // enable d_send
+            GPIOA->BSRR |= GPIO_BSRR_BS_2; // enable d_send
         } else {
-            if (data == 255) {
-                GPIOC->BSRR |= GPIO_BSRR_BR_2; // disable d_send
-                TIM16->CR1 &= ~TIM_CR1_CEN; // disable timer
-                GPIOC->BSRR |= GPIO_BSRR_BR_3; // disable timer impulse
-                GPIOC->ODR |= GPIO_ODR_8;
-                return;
-            }
             GPIOC->ODR &= ~GPIO_ODR_8;
-            data = circular_buf_get(&transmit_buffer, &data);
-            if (transmit_buffer.full) GPIOC->BSRR |= GPIO_BSRR_BS_2; // enable d_send
+            circular_buf_get(&transmit_buffer, &data);
+            if (transmit_buffer.full) GPIOA->BSRR |= GPIO_BSRR_BS_2; // enable d_send
         }
     }
-    (data & ((uint8_t) (1 << data_bit))) ? (GPIOC->BSRR |= GPIO_BSRR_BS_1) : (GPIOC->BSRR |= GPIO_BSRR_BR_1);
-    if (data_bit-- == 0) data_bit = 7;
-    GPIOC->BSRR |= GPIO_BSRR_BR_3; // reset timer pulse
+    (data & ((uint8_t) (1 << data_bit))) ? (GPIOA->BSRR |= GPIO_BSRR_BS_1) : (GPIOA->BSRR |= GPIO_BSRR_BR_1);
+    if (data_bit-- == 0) {
+        data_bit = 7;
+        // reset
+        if (program_command == COMMAND_TRANSMISSION) {
+            if (data == data_command) {
+                GPIOA->BSRR |= GPIO_BSRR_BR_2; // disable d_send
+                TIM16->CR1 &= ~TIM_CR1_CEN; // disable timer
+                program_command = IDLE;
+            }
+        } else {
+            if (circular_buf_empty(&transmit_buffer)) {
+                GPIOA->BSRR |= GPIO_BSRR_BR_2; // disable d_send
+                TIM16->CR1 &= ~TIM_CR1_CEN; // disable timer
+                GPIOC->ODR |= GPIO_ODR_8;
+            }
+        }
+    }
+    GPIOA->BSRR |= GPIO_BSRR_BR_3; // reset timer pulse
 }
 
 void process_parallel_send_data(void) {
@@ -126,12 +129,12 @@ void process_parallel_send_data(void) {
         }
     }
 
-    GPIOA->ODR &= ~0b111111110;
-    GPIOA->ODR |= (((uint32_t) tmp) << 1);
+    GPIOB->ODR &= ~0b111111110;
+    GPIOB->ODR |= (((uint32_t) tmp) << 1);
     for (uint8_t i = 0; i < 8; i++);
-    GPIOC->BSRR |= GPIO_BSRR_BS_10;
+    GPIOA->BSRR |= GPIO_BSRR_BS_4;
     for (uint8_t i = 0; i < 64; i++);
-    GPIOC->BSRR |= GPIO_BSRR_BR_10;
+    GPIOA->BSRR |= GPIO_BSRR_BR_4;
 
     send_parallel_data = 0;
 }
@@ -141,7 +144,7 @@ void process_serial_read_data(void) {
     static uint8_t data_bit = 7;
     static uint8_t data = 0;
     if (!read_serial_data) { return; } // set in timer get interrupt
-    data |= ( (uint8_t) ((GPIOC->IDR & GPIO_IDR_1) ? 1 : 0) ) << data_bit;
+    data |= ((uint8_t) ((GPIOA->IDR & GPIO_IDR_1) ? 1 : 0)) << data_bit;
     read_serial_data = 0;
     if (data_bit-- == 0) {
         data_bit = 7;
@@ -162,7 +165,7 @@ void process_parallel_read_data(void) {
     static uint32_t byte_count = 0;
     if (!read_parallel_data) { return; }
 
-    uint8_t data = (uint8_t) (GPIOA->IDR >> 1);
+    uint8_t data = (uint8_t) (GPIOB->IDR >> 1);
 
     if (data == data_command) {
         GPIOC->ODR ^= GPIO_ODR_9;
@@ -175,9 +178,9 @@ void process_parallel_read_data(void) {
     }
 
     read_parallel_data = 0;
-    GPIOC->BSRR |= GPIO_BSRR_BS_11;
+    GPIOA->BSRR |= GPIO_BSRR_BS_5;
     for (uint8_t i = 0; i < 64; i++);
-    GPIOC->BSRR |= GPIO_BSRR_BR_11;
+    GPIOA->BSRR |= GPIO_BSRR_BR_5;
 }
 
 void setup_PERIPHERALS(void) {
