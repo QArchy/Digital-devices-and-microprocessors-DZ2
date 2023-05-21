@@ -14,6 +14,28 @@ static void lock_flash(void) {
     FLASH->CR |= FLASH_CR_LOCK;
 }
 
+static void erase_page() {
+    unlock_flash();
+
+    //check if flash is busy
+    while( (FLASH->SR & FLASH_SR_BSY) == FLASH_SR_BSY);
+    //page erase register
+    FLASH->CR |= FLASH_CR_PER;
+    //set address of page to erase
+    FLASH->AR = (uint32_t) FLASH_WRITE_PAGE_START;
+    //start erase
+    FLASH->CR |= FLASH_CR_STRT;
+    //wait while page is erasing
+    while( (FLASH->SR & FLASH_SR_BSY) == FLASH_SR_BSY);
+    //reset bit "end of operation"
+    if( (FLASH->SR & FLASH_SR_EOP) == FLASH_SR_EOP )
+        FLASH->SR |= FLASH_SR_EOP;
+    //reset page erase register
+    FLASH->CR &= ~FLASH_CR_PER;
+
+    lock_flash();
+}
+
 static uint16_t double_uint8_to_uint16(uint8_t char1, uint8_t char2) {
     uint16_t uint16_data = 0;
     uint16_data |= ((uint16_t) char1 << 8);
@@ -22,6 +44,7 @@ static uint16_t double_uint8_to_uint16(uint8_t char1, uint8_t char2) {
 }
 
 void write_flash_data_buffer(const uint8_t* buffer, uint16_t buffer_size) {
+    erase_page();
     unlock_flash();
 
     FLASH->CR |= FLASH_CR_PG;
@@ -42,6 +65,10 @@ void write_flash_data_buffer(const uint8_t* buffer, uint16_t buffer_size) {
 void write_flash_data(const uint8_t* src) {
     static uint16_t call_number = 0;
     static uint8_t even_entry = 1;
+
+    if (call_number == 0) {
+        erase_page();
+    }
 
     even_entry ^= 1;
     unlock_flash();

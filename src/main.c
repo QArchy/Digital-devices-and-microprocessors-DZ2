@@ -36,6 +36,9 @@ extern uint8_t send_parallel_data; // becomes 1 in interrupt
 extern uint8_t read_serial_data; // becomes 1 in interrupt
 extern uint8_t send_serial_data; // becomes 1 in interrupt
 
+extern uint8_t buffer_to_usart_complete;
+extern uint8_t usart_to_buffer_complete;
+
 void setup_PERIPHERALS(void);
 
 void process_parallel_read_data(void);
@@ -53,13 +56,30 @@ int main(void) {
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "EndlessLoop"
     while (1) {
-        if (program_command == USART_TO_FLASH) {
-            test_flash(&transmit_buffer, &receive_buffer, sample_1024);
-            program_command = IDLE;
+        if (program_command == USART_TO_FLASH) { // DMA_Channel3
+            if (!(DMA1_Channel3->CCR & DMA_CCR_EN))
+                DMA1_Channel3->CCR |= DMA_CCR_EN; // turn on DMA transmission
+            if (usart_to_buffer_complete) { // wait for usart_to_buffer_complete
+                usart_to_buffer_complete = 0;
+                write_flash_data_buffer(receive_buffer.buffer, BUFFER_MAX_SIZE);
+                program_command = IDLE;
+            }
+        }
+        if (program_command == FLASH_TO_USART) { // DMA_Channel2
+            if (!(DMA1_Channel2->CCR & DMA_CCR_EN)) {
+                read_flash_data_buffer(transmit_buffer.buffer, BUFFER_MAX_SIZE);
+                DMA1_Channel2->CCR |= DMA_CCR_EN; // turn on DMA transmission
+            }
+            if (buffer_to_usart_complete) { // wait for flash_to_buffer_complete
+                buffer_to_usart_complete = 0;
+                program_command = IDLE;
+            }
         }
         if (program_command == START_TRANSMISSION) {
             circular_buf_init_reset(&transmit_buffer);
-            for (uint16_t i = 0; i < 1024; i++) circular_buf_put(&transmit_buffer, sample_1024[i]);
+            read_flash_data_buffer(transmit_buffer.buffer, BUFFER_MAX_SIZE);
+            for (uint16_t i = 0; i < 1024; i++)
+                circular_buf_put(&transmit_buffer, transmit_buffer.buffer[i]);
             program_config.parallel_transmit ? (send_parallel_data = 1) : (TIM16->CR1 |= TIM_CR1_CEN);
             program_command = IDLE;
         }
@@ -190,6 +210,6 @@ void process_parallel_read_data(void) {
 
 void setup_PERIPHERALS(void) {
     setup_GPIO_PINS();
-    //setup_USART1_DMA(tx_buffer.buffer, rx_buffer.buffer);
+    setup_USART1_DMA(transmit_buffer.buffer, receive_buffer.buffer);
     setup_BUTTON();
 }

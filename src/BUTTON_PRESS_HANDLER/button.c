@@ -96,12 +96,9 @@ void TIM15_IRQHandler(void) { // COMMAND_CHOOSE
         case 3:
             program_command = USART_TO_FLASH;
             break;
-//        case 4:
-//            program_command = FLASH_TO_TRANSMISSION_BUFFER;
-//            break;
-//        case 5:
-//            program_command = FLASH_TO_USART;
-//            break;
+        case 4:
+            program_command = FLASH_TO_USART;
+            break;
         default:
             program_command = IDLE;
             break;
